@@ -70,7 +70,7 @@
 				"ignoreStrings": true
 			}
 		],
-		"spaced-comment": ["error", "always"],
+		"spaced-comment": ["error", "always", { "markers": ["/"] }],
 		"prefer-template": "error",
 		"no-multi-str": "error",
 		"no-unused-expressions": "error",
