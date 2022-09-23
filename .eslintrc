@@ -1,0 +1,86 @@
+{
+	"env": {
+		"browser": false,
+		"node": true,
+		"commonjs": true,
+		"es6": true
+	},
+	"extends": [
+		"prettier",
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"prettier",
+		"react",
+		"@typescript-eslint",
+		"jsx-a11y",
+		"import"
+	],
+	"settings": {
+		"react": {
+			"version": "18.2.0"
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [".ts", ".tsx", ".d.ts"]
+			}
+		}
+	},
+	"ignorePatterns": ["node_modules", "dist"],
+	"rules": {
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": ["error"],
+		"@typescript-eslint/consistent-type-imports": [
+			"error",
+			{
+				"prefer": "type-imports",
+				"disallowTypeAnnotations": false
+			}
+		],
+		"no-empty": "error",
+		"eqeqeq": "error",
+		"curly": "error",
+		"object-curly-spacing": ["error", "always"],
+		"template-curly-spacing": ["error", "never"],
+		"array-bracket-newline": ["error", { "multiline": true }],
+		"array-bracket-spacing": ["error", "never"],
+		"computed-property-spacing": ["error", "never"],
+		"consistent-return": "off",
+		"no-else-return": "error",
+		"no-lonely-if": "error",
+		"capitalized-comments": ["error"],
+		"line-comment-position": ["warning", { "position": "beside" }],
+		"multiline-comment-style": ["warning", "starred-block"],
+		"max-lines": ["error", { "max": 250 }],
+		"max-len": ["error", { "code": 80, "ignorePattern": "^import .*" }],
+		"spaced-comment": ["error", "always"],
+		"prefer-template": "error",
+		"no-multi-str": "error",
+		"no-unused-expressions": "error",
+		"no-extra-parens": [
+			"error",
+			"all",
+			{ "ignoreJSX": "all", "nestedBinaryExpressions": false }
+		],
+		"space-before-function-paren": "error",
+		"space-in-parens": ["error", "never"],
+		"linebreak-style": ["off"],
+		"indent": ["error", "tab"],
+		"func-names": ["error", "as-needed"],
+		"no-underscore-dangle": "off",
+		"no-control-regex": "off",
+		"react/react-in-jsx-scope": "off",
+		"global-require": "off",
+		"import/extensions": "off"
+	}
+}
