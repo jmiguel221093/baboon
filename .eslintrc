@@ -58,11 +58,18 @@
 		"consistent-return": "off",
 		"no-else-return": "error",
 		"no-lonely-if": "error",
-		"capitalized-comments": ["error"],
-		"line-comment-position": ["warning", { "position": "beside" }],
-		"multiline-comment-style": ["warning", "starred-block"],
+		"line-comment-position": "off",
+		"multiline-comment-style": ["warn", "separate-lines"],
 		"max-lines": ["error", { "max": 250 }],
-		"max-len": ["error", { "code": 80, "ignorePattern": "^import .*" }],
+		"max-len": [
+			"error",
+			{
+				"code": 80,
+				"ignorePattern": "^import .*",
+				"ignoreComments": true,
+				"ignoreStrings": true
+			}
+		],
 		"spaced-comment": ["error", "always"],
 		"prefer-template": "error",
 		"no-multi-str": "error",
@@ -72,7 +79,10 @@
 			"all",
 			{ "ignoreJSX": "all", "nestedBinaryExpressions": false }
 		],
-		"space-before-function-paren": "error",
+		"space-before-function-paren": [
+			"error",
+			{ "named": "never", "anonymous": "always" }
+		],
 		"space-in-parens": ["error", "never"],
 		"linebreak-style": ["off"],
 		"indent": ["error", "tab"],
