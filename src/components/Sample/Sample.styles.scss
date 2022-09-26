@@ -1,0 +1,7 @@
+$sample-title-color: red;
+
+.Sample {
+	&__Title {
+		color: $sample-title-color;
+	}
+}
