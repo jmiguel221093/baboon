@@ -36,7 +36,7 @@
 			}
 		}
 	},
-	"ignorePatterns": ["node_modules", "dist"],
+	"ignorePatterns": ["node_modules", "dist", "design-tokens"],
 	"rules": {
 		"no-unused-vars": "off",
 		"@typescript-eslint/no-unused-vars": ["error"],

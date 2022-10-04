@@ -1,0 +1,226 @@
+{
+	"color-background": {
+		"value": "{color.base.gray.50}",
+		"description": "Used as a background color for application background or in Banner component"
+	},
+	"color-background-surface": {
+		"value": "{color.base.white}",
+		"description": "Used as background color for application and for components such as Card, Modal and Popover"
+	},
+	"color": {
+		"background": {
+			"surface-neutral": {
+				"value": "{color.base.gray.300}",
+				"description": "Used as background color in components with default states such as Button, Badge, ProgressBar, Slider and Tag"
+			},
+			"surface-primary": {
+				"value": "{color.base.gray.900}",
+				"description": "Used as background color in components with primary states such as Button, Badge, Icon, Slider and Tag"
+			},
+			"surface-danger": {
+				"value": "{color.base.red.500}",
+				"description": "Used as background color in components with danger states such as Button, Badge, Icon, Slider and Tag"
+			},
+			"surface-success": {
+				"value": "{color.base.green.500}",
+				"description": "Used as background color in components with success states such as Button, Badge, Icon, Slider and Tag"
+			},
+			"surface-warning": {
+				"value": "{color.base.yellow.500}",
+				"description": "Used as background color in components with warning states such as Button, Badge, Icon, Slider and Tag"
+			},
+			"surface-info": {
+				"value": "{color.base.blue.500}",
+				"description": "Used as background color in components with info states such as Button, Badge, Icon, Slider and Tag"
+			},
+			"surface": {
+				"disabled": {
+					"value": "{color.base.gray.200}",
+					"description": "Used as background color for disabled components"
+				},
+				"neutral-subtle": {
+					"value": "{color.base.gray.100}",
+					"description": "For use as a subtle background in components when they have default state"
+				},
+				"danger-subtle": {
+					"value": "{color.base.red.50}",
+					"description": "For use as a subtle background in components when they have danger state"
+				},
+				"success-subtle": {
+					"value": "{color.base.green.50}",
+					"description": "For use as a subtle background in components when they have success state"
+				},
+				"warning-subtle": {
+					"value": "{color.base.yellow.50}",
+					"description": "For use as a subtle background in components when they have warning state"
+				},
+				"info-subtle": {
+					"value": "{color.base.blue.50}",
+					"description": "For use as a subtle background in components when they have info state"
+				},
+				"neutral": {
+					"hovered": {
+						"value": "{color.base.gray.200}",
+						"description": "For use in hover states when componentes have surface neutral background color as its default and when they are clickable"
+					},
+					"active": {
+						"value": "{color.base.gray.500}",
+						"description": "For use when component is pressed, this color is for use when components are clickable and they have surface neutral background color as its default"
+					},
+					"focus": {
+						"value": "{color.base.gray.400}",
+						"description": "For use when component is focused, this color is for use when components are clickable and they have surface neutral background color as its default"
+					},
+					"subtle": {
+						"on-dark": {
+							"value": "{color.base.gray.800}",
+							"description": "For use as a subtle background in components when they are over dark surfaces"
+						},
+						"hovered": {
+							"value": "{color.base.gray.200}",
+							"description": "For use as a subtle background in components when they have neutral state and hover action"
+						},
+						"active": {
+							"value": "{color.base.gray.400}",
+							"description": "For use as a subtle background in components when they have neutral state and press action"
+						},
+						"focus": {
+							"value": "{color.base.gray.300}",
+							"description": "For use as a subtle background in components when they have neutral state and focus action"
+						}
+					}
+				},
+				"primary": {
+					"hovered": {
+						"value": "{color.base.gray.600}",
+						"description": "For use in hover states when componentes have surface primary background color as its default and when they are clickable"
+					},
+					"active": {
+						"value": "{color.base.gray.800}",
+						"description": "For use when component is pressed, this color is for use when components are clickable and they have surface primary background color as its default"
+					},
+					"focus": {
+						"value": "{color.base.gray.700}",
+						"description": "For use when component is focused, this color is for use when components are clickable and they have surface primary background color as its default"
+					}
+				},
+				"danger": {
+					"hovered": {
+						"value": "{color.base.red.400}",
+						"description": "For use in hover states when componentes have surface danger background color as its default and when they are clickable"
+					},
+					"active": {
+						"value": "{color.base.red.700}",
+						"description": "For use when component is pressed, this color is for use when components are clickable and they have surface danger background color as its default"
+					},
+					"focus": {
+						"value": "{color.base.red.600}",
+						"description": "For use when component is focused, this color is for use when components are clickable and they have surface danger background color as its default"
+					},
+					"subtle": {
+						"on-danger": {
+							"value": "{color.base.red.600}",
+							"description": "For use as a subtle background in components when they are over danger surfaces"
+						},
+						"hovered": {
+							"value": "{color.base.red.100}",
+							"description": "For use as a subtle background in components when they have danger state and have hover action"
+						},
+						"active": {
+							"value": "{color.base.red.300}",
+							"description": "For use as a subtle background in components when they have danger state and have press action"
+						},
+						"focus": {
+							"value": "{color.base.red.200}",
+							"description": "For use as a subtle background in components when they have danger state and have focus action"
+						}
+					}
+				},
+				"success": {
+					"hovered": {
+						"value": "{color.base.green.400}",
+						"description": "For use in hover states when componentes have surface success background color as its default and when they are clickable"
+					},
+					"active": {
+						"value": "{color.base.green.700}",
+						"description": "For use when component is pressed, this color is for use when components are clickable and they have surface success background color as its default"
+					},
+					"focus": {
+						"value": "{color.base.green.600}",
+						"description": "For use when component is focused, this color is for use when components are clickable and they have surface success background color as its default"
+					},
+					"subtle": {
+						"hovered": {
+							"value": "{color.base.green.100}",
+							"description": "For use as a subtle background in components when they have success state and have hover action"
+						},
+						"active": {
+							"value": "{color.base.green.300}",
+							"description": "For use as a subtle background in components when they have success state and have press action"
+						},
+						"focus": {
+							"value": "{color.base.green.200}",
+							"description": "For use as a subtle background in components when they have success state and have focus action"
+						}
+					}
+				},
+				"warning": {
+					"hovered": {
+						"value": "{color.base.yellow.400}",
+						"description": "For use in hover states when componentes have surface warning background color as its default and when they are clickable"
+					},
+					"active": {
+						"value": "{color.base.yellow.700}",
+						"description": "For use when component is pressed, this color is for use when components are clickable and they have surface warning background color as its default"
+					},
+					"focus": {
+						"value": "{color.base.yellow.600}",
+						"description": "For use when component is focused, this color is for use when components are clickable and they have surface warning background color as its default"
+					},
+					"subtle": {
+						"hovered": {
+							"value": "{color.base.yellow.100}",
+							"description": "For use as a subtle background in components when they have warning state and have hover action"
+						},
+						"active": {
+							"value": "{color.base.yellow.300}",
+							"description": "For use as a subtle background in components when they have warning state and have press action"
+						},
+						"focus": {
+							"value": "{color.base.yellow.200}",
+							"description": "For use as a subtle background in components when they have warning state and have focus action"
+						}
+					}
+				},
+				"info": {
+					"hovered": {
+						"value": "{color.base.blue.400}",
+						"description": "For use in hover states when componentes have surface info background color as its default and when they are clickable"
+					},
+					"active": {
+						"value": "{color.base.blue.700}",
+						"description": "For use when component is pressed, this color is for use when components are clickable and they have surface info background color as its default"
+					},
+					"focus": {
+						"value": "{color.base.blue.600}",
+						"description": "For use when component is focused, this color is for use when components are clickable and they have surface info background color as its default"
+					},
+					"subtle": {
+						"hovered": {
+							"value": "{color.base.blue.100}",
+							"description": "For use as a subtle background in components when they have info state and have hover action"
+						},
+						"active": {
+							"value": "{color.base.blue.300}",
+							"description": "For use as a subtle background in components when they have info state and have press action"
+						},
+						"focus": {
+							"value": "{color.base.blue.200}",
+							"description": "For use as a subtle background in components when they have info state and have focus action"
+						}
+					}
+				}
+			}
+		}
+	}
+}

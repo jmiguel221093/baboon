@@ -1,0 +1,24 @@
+{
+	"breakpoint": {
+		"xs": {
+			"value": "0px",
+			"description": "Used for extra small screens sizing"
+		},
+		"sm": {
+			"value": "576px",
+			"description": "Used for small screens sizing"
+		},
+		"md": {
+			"value": "768px",
+			"description": "Used for medium screens sizing"
+		},
+		"lg": {
+			"value": "1024px",
+			"description": "Used for large screens sizing"
+		},
+		"xl": {
+			"value": "1440px",
+			"description": "Used for extra large screens sizing"
+		}
+	}
+}

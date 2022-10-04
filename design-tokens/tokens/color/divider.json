@@ -1,0 +1,18 @@
+{
+	"color-divider": {
+		"value": "{color.base.gray.300}",
+		"description": "For use as a divider between elements"
+	},
+	"color": {
+		"divider": {
+			"on-dark": {
+				"value": "{color.base.gray.800}",
+				"description": "For use as a divider between elements on dark surfaces"
+			},
+			"dark": {
+				"value": "{color.base.gray.900}",
+				"description": "For use as a dark divider between elements"
+			}
+		}
+	}
+}
