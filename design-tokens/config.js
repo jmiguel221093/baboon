@@ -8,7 +8,7 @@ module.exports = {
 			files: [
 				{
 					destination: "initial_variables.scss",
-					format: "scss/variables",
+					format: "css/variables",
 				},
 			],
 		},
