@@ -1,14 +1,6 @@
 {
 	"size": {
 		"font": {
-			"family": {
-				"sans": {
-					"value": "Poppins, -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif"
-				},
-				"mono": {
-					"value": "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace"
-				}
-			},
 			"size": {
 				"50": {
 					"value": "12px"

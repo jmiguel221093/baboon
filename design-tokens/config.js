@@ -1,10 +1,10 @@
-module.exports = {
+const config = {
 	source: ["tokens/**/*.json"],
 	platforms: {
 		scss: {
-			transformGroup: "scss",
-			transforms: ["size/rem", "name/cti/kebab", "color/rgb"],
+			transforms: ["name/cti/kebab", "color/rgb", "sizing/pxToRem"],
 			buildPath: "build/scss/",
+			basePxFontSize: 16,
 			files: [
 				{
 					destination: "initial_variables.scss",
@@ -14,7 +14,7 @@ module.exports = {
 		},
 		js: {
 			transformGroup: "js",
-			transforms: ["size/rem", "name/cti/camel", "color/rgb"],
+			transforms: ["name/cti/camel", "color/rgb", "sizing/pxToRem"],
 			buildPath: "build/js/",
 			files: [
 				{
@@ -29,3 +29,5 @@ module.exports = {
 		},
 	},
 };
+
+module.exports = config;
