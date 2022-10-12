@@ -1,0 +1,29 @@
+@function cssVar($values...) {
+	$var: "-";
+	@each $val in $values {
+		$var: -$val;
+	}
+	@return var(#{$var});
+}
+
+@function background(
+	$is-surface: false,
+	$color: "",
+	$is-subtle: false,
+	$state-on: ""
+) {
+	$background-var: color, background;
+	@if $is-surface {
+		$background-var: append($background-var, surface);
+	}
+	@if $color != "" and $color != null {
+		$background-var: append($background-var, $color);
+	}
+	@if $is-subtle {
+		$background-var: append($background-var, subtle);
+	}
+	@if $state-on != "" and $state-on != null {
+		$background-var: append($background-var, $state-on);
+	}
+	@return cssVar($background-var);
+}
