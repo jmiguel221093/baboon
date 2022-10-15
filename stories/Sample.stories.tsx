@@ -1,6 +1,7 @@
+import React from "react";
 import type { ComponentMeta } from "@storybook/react";
 
-import { Sample } from "../components";
+import { Sample } from "../src/components";
 
 export default {
 	title: "AllComponents/Sample",
