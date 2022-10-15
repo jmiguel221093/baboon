@@ -1,4 +1,4 @@
+@import "../../design-tokens/build/scss/initial_variables.scss";
+
 @import "utils/all";
-body {
-	background-color: background(true);
-}
+@import "base/all";

@@ -29,7 +29,7 @@
 					"value": "rgba({color.base.gray.600.rgb}, {color.base.gray.600.alpha})"
 				},
 				"500": {
-					"rgb": "180,174,192",
+					"rgb": "160,174,192",
 					"alpha": "1",
 					"value": "rgba({color.base.gray.500.rgb}, {color.base.gray.500.alpha})"
 				},

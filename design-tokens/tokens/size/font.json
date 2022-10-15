@@ -1,83 +1,81 @@
 {
-	"size": {
-		"font": {
-			"size": {
-				"50": {
-					"value": "12px"
-				},
-				"75": {
-					"value": "14px"
-				},
-				"100": {
-					"value": "16px"
-				},
-				"200": {
-					"value": "20px"
-				},
-				"250": {
-					"value": "21px"
-				},
-				"300": {
-					"value": "24px"
-				},
-				"400": {
-					"value": "26px"
-				},
-				"450": {
-					"value": "27px"
-				},
-				"500": {
-					"value": "32px"
-				},
-				"600": {
-					"value": "42px"
-				}
+	"font": {
+		"size": {
+			"50": {
+				"value": "12px"
 			},
-			"weight": {
-				"regular": {
-					"value": "400"
-				},
-				"medium": {
-					"value": "500"
-				},
-				"semi-bold": {
-					"value": "600"
-				}
+			"75": {
+				"value": "14px"
 			},
-			"line-height": {
-				"1": {
-					"value": "16px"
-				},
-				"2": {
-					"value": "18px"
-				},
-				"3": {
-					"value": "20px"
-				},
-				"4": {
-					"value": "24px"
-				},
-				"5": {
-					"value": "28px"
-				},
-				"6": {
-					"value": "30px"
-				},
-				"7": {
-					"value": "32px"
-				},
-				"8": {
-					"value": "36px"
-				},
-				"9": {
-					"value": "39px"
-				},
-				"10": {
-					"value": "48px"
-				},
-				"11": {
-					"value": "63px"
-				}
+			"100": {
+				"value": "16px"
+			},
+			"200": {
+				"value": "20px"
+			},
+			"250": {
+				"value": "21px"
+			},
+			"300": {
+				"value": "24px"
+			},
+			"400": {
+				"value": "26px"
+			},
+			"450": {
+				"value": "27px"
+			},
+			"500": {
+				"value": "32px"
+			},
+			"600": {
+				"value": "42px"
+			}
+		},
+		"weight": {
+			"regular": {
+				"value": "400"
+			},
+			"medium": {
+				"value": "500"
+			},
+			"semi-bold": {
+				"value": "600"
+			}
+		},
+		"line-height": {
+			"1": {
+				"value": "16px"
+			},
+			"2": {
+				"value": "18px"
+			},
+			"3": {
+				"value": "20px"
+			},
+			"4": {
+				"value": "24px"
+			},
+			"5": {
+				"value": "28px"
+			},
+			"6": {
+				"value": "30px"
+			},
+			"7": {
+				"value": "32px"
+			},
+			"8": {
+				"value": "36px"
+			},
+			"9": {
+				"value": "39px"
+			},
+			"10": {
+				"value": "48px"
+			},
+			"11": {
+				"value": "63px"
 			}
 		}
 	}

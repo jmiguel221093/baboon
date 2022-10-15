@@ -1,0 +1,26 @@
+$form-action-border-radius: --border-radius-9;
+
+$form-action-font-size: --font-size-75;
+$form-action-line-height: --font-line-height-3;
+
+$form-action-padding-vertical: calc(var(--spacing-3) + var(--spacing-05));
+
+$form-action-focus-shadow: var(--shadow-focus);
+
+@mixin form-action {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border-radius: var($form-action-border-radius);
+	font-size: var($form-action-font-size);
+	line-height: var($form-action-line-height);
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	vertical-align: top;
+	padding-top: $form-action-padding-vertical;
+	padding-bottom: $form-action-padding-vertical;
+	&:focus,
+	&.focused {
+		box-shadow: $form-action-focus-shadow;
+	}
+}
