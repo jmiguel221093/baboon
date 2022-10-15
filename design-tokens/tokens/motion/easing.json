@@ -1,9 +1,0 @@
-{
-	"motion": {
-		"ease": {
-			"in-out": {
-				"value": "ease-in-out"
-			}
-		}
-	}
-}

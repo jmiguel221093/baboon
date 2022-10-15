@@ -1,7 +1,50 @@
 {
 	"name": "baboon",
 	"version": "0.1.0",
-	"private": true,
+	"description": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jmiguel221093/baboon.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jmiguel221093/baboon/issues"
+	},
+	"homepage": "https://github.com/jmiguel221093/baboon#readme",
+	"peerDependencies": {
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.19.3",
+		"@storybook/addon-actions": "^6.5.12",
+		"@storybook/addon-essentials": "^6.5.12",
+		"@storybook/addon-interactions": "^6.5.12",
+		"@storybook/addon-links": "^6.5.12",
+		"@storybook/builder-webpack4": "^6.5.12",
+		"@storybook/manager-webpack4": "^6.5.12",
+		"@storybook/react": "^6.5.12",
+		"@storybook/testing-library": "^0.0.13",
+		"@types/react": "^18.0.21",
+		"@types/react-dom": "^18.0.6",
+		"babel-loader": "^8.2.5",
+		"concurrently": "^7.4.0",
+		"css-loader": "5.2.7",
+		"husky": "^8.0.1",
+		"pretty-quick": "^3.1.3",
+		"prop-types": "15.8.1",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"sass-loader": "10.3.1",
+		"style-dictionary": "^3.7.1",
+		"style-loader": "2.0.0"
+	},
 	"dependencies": {
 		"@testing-library/jest-dom": "5.16.5",
 		"@testing-library/react": "12.1.2",
@@ -23,39 +66,8 @@
 		"eslint-plugin-prettier": "4.2.1",
 		"eslint-plugin-react": "7.31.8",
 		"prettier": "2.7.1",
-		"react": "17.0.2",
-		"react-dom": "17.0.2",
-		"react-scripts": "5.0.1",
 		"sass": "^1.55.0",
-		"typescript": "4.8.3",
-		"web-vitals": "2.1.4"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test --env jest-environment-jsdom --watchAll=false",
-		"test:watch": "react-scripts test --env jest-environment-jsdom --watchAll",
-		"eject": "react-scripts eject",
-		"storybook": "start-storybook -p 6006 -s public",
-		"build-storybook": "build-storybook -s public",
-		"lint": "eslint \"**/*.{ts,tsx}\"",
-		"prepare": "husky install"
-	},
-	"eslintConfig": {
-		"extends": [
-			"react-app",
-			"react-app/jest"
-		],
-		"overrides": [
-			{
-				"files": [
-					"**/*.stories.*"
-				],
-				"rules": {
-					"import/no-anonymous-default-export": "off"
-				}
-			}
-		]
+		"typescript": "4.8.3"
 	},
 	"browserslist": {
 		"production": [
@@ -68,24 +80,5 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	},
-	"devDependencies": {
-		"@storybook/addon-actions": "6.5.12",
-		"@storybook/addon-essentials": "6.5.12",
-		"@storybook/addon-interactions": "6.5.12",
-		"@storybook/addon-links": "6.5.12",
-		"@storybook/builder-webpack5": "6.5.12",
-		"@storybook/manager-webpack5": "6.5.12",
-		"@storybook/node-logger": "6.5.12",
-		"@storybook/preset-create-react-app": "4.1.2",
-		"@storybook/react": "6.5.12",
-		"@storybook/testing-library": "0.0.13",
-		"babel-plugin-named-exports-order": "0.0.2",
-		"concurrently": "^7.4.0",
-		"husky": "^8.0.1",
-		"pretty-quick": "^3.1.3",
-		"prop-types": "15.8.1",
-		"style-dictionary": "^3.7.1",
-		"webpack": "5.74.0"
 	}
 }
