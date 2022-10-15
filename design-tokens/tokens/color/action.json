@@ -1,0 +1,30 @@
+{
+	"color": {
+		"action": {
+			"hovered": {
+				"value": "{color.base.gray.200}",
+				"description": "Used in menu lists items, option lists items or navigation items when they are in hover state"
+			},
+			"selected": {
+				"value": "{color.base.gray.900}",
+				"description": "Used when an action has selected state"
+			},
+			"disabled": {
+				"value": "{color.base.gray.100}",
+				"description": "Used in menu lists items, option lists items or navigation items when they are in hover state"
+			},
+			"subtle": {
+				"selected": {
+					"value": "{color.base.gray.300}",
+					"description": "Used when a subtle action has selected state"
+				}
+			},
+			"danger": {
+				"hovered": {
+					"value": "{color.base.red.100}",
+					"description": "Used when a danger action has selected state"
+				}
+			}
+		}
+	}
+}

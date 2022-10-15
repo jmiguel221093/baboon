@@ -8,5 +8,6 @@
 	},
 	"testEnvironment": "jsdom",
 	"testRegex": "./*\\.test\\.(ts|tsx)$",
-	"moduleFileExtensions": ["js", "tsx", "json"]
+	"moduleFileExtensions": ["js", "tsx", "json"],
+	"setupFilesAfterEnv": ["<rootDir>/src/setupTests.ts"]
 }

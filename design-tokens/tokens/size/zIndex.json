@@ -1,0 +1,19 @@
+{
+	"zIndex": {
+		"tooltip": {
+			"value": "1070"
+		},
+		"popover": {
+			"value": "1060"
+		},
+		"modal": {
+			"value": "1050"
+		},
+		"modal-backdrop": {
+			"value": "1040"
+		},
+		"fixed": {
+			"value": "1030"
+		}
+	}
+}
