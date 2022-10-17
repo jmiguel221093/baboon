@@ -3,7 +3,9 @@ $form-action-border-radius: --border-radius-9;
 $form-action-font-size: --font-size-75;
 $form-action-line-height: --font-line-height-3;
 
-$form-action-padding-vertical: calc(var(--spacing-3) + var(--spacing-05));
+$form-action-border: solid 1px transparent;
+
+$form-action-padding-vertical: calc(var(--spacing-3) + var(--spacing-05) - 1px);
 
 $form-action-focus-shadow: var(--shadow-focus);
 
@@ -19,6 +21,7 @@ $form-action-focus-shadow: var(--shadow-focus);
 	vertical-align: top;
 	padding-top: $form-action-padding-vertical;
 	padding-bottom: $form-action-padding-vertical;
+	border: $form-action-border;
 	&:focus,
 	&.focused {
 		box-shadow: $form-action-focus-shadow;
