@@ -42,7 +42,9 @@ const Button = ({
 		primary && "primary",
 		disabled && "disabled",
 		outline && "outline",
-		clean && "clean"
+		clean && "clean",
+		danger && "danger",
+		link && "link"
 	);
 	return (
 		<button id={id} className={classNames} disabled={disabled}>

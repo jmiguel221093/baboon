@@ -24,6 +24,30 @@ export const Primary = () => {
 	return <Button primary>Primary</Button>;
 };
 
+export const Danger = () => {
+	return <Button danger>Danger</Button>;
+};
+
+export const DangerOutline = () => {
+	return (
+		<Button danger outline>
+			Danger outline
+		</Button>
+	);
+};
+
+export const DangerClean = () => {
+	return (
+		<Button danger clean>
+			Danger clean
+		</Button>
+	);
+};
+
+export const Link = () => {
+	return <Button link>Link</Button>;
+};
+
 export const Disabled = () => {
 	return <Button disabled>Disabled</Button>;
 };
@@ -40,6 +64,14 @@ export const CleanDisabled = () => {
 	return (
 		<Button clean disabled>
 			Clean disabled
+		</Button>
+	);
+};
+
+export const LinkDisabled = () => {
+	return (
+		<Button link disabled>
+			Link
 		</Button>
 	);
 };

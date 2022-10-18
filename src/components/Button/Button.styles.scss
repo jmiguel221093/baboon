@@ -37,6 +37,44 @@ $button-primary-background-color-focus: var(
 $button-primary-font-color: var(--color-text-on-dark);
 $button-primary-shadow-focus: var(--shadow-focus-primary);
 
+$button-danger-background-color: var(--color-background-surface-danger);
+$button-danger-background-color-hover: var(
+	--color-background-surface-danger-hovered
+);
+$button-danger-background-color-active: var(
+	--color-background-surface-danger-active
+);
+$button-danger-background-color-focus: var(
+	--color-background-surface-danger-focus
+);
+$button-danger-font-color: var(--color-text-on-dark);
+$button-danger-shadow-focus: var(--shadow-focus-danger);
+
+$button-danger-outline-border-color: var(--color-border-danger);
+$button-danger-outline-border-color-hover: var(--color-border-danger-hovered);
+$button-danger-outline-border-color-active: var(--color-border-danger-active);
+$button-danger-outline-border-color-focus: var(--color-border-danger-focus);
+$button-danger-outline-font-color-hover: var(--color-text-danger-hovered);
+$button-danger-outline-font-color-active: var(--color-text-danger-active);
+$button-danger-outline-font-color-focus: var(--color-text-danger-focus);
+$button-danger-outline-font-color: var(--color-text-danger);
+$button-danger-outline-background-color-hover: var(
+	--color-background-surface-danger-subtle-hovered
+);
+$button-danger-outline-background-color-active: var(
+	--color-background-surface-danger-subtle-active
+);
+$button-danger-outline-background-color-focus: var(
+	--color-background-surface-danger-subtle-focus
+);
+
+$button-link-padding-vertical: 0;
+$button-link-padding-horizontal: var(--spacing-1);
+$button-link-font-color: var(--color-text-interactive);
+$button-link-font-color-hover: var(--color-text-interactive-hovered);
+$button-link-font-color-active: var(--color-text-interactive-active);
+$button-link-font-color-focus: var(--color-text-interactive-focus);
+
 $button-motion-duration: var(--motion-duration-250);
 $button-motion-ease: var(--motion-ease-in-out);
 
@@ -52,6 +90,7 @@ $button-motion-ease: var(--motion-ease-in-out);
 	background-color: $button-default-color;
 	transition: background-color $button-motion-duration $button-motion-ease,
 		box-shadow $button-motion-duration $button-motion-ease,
+		color $button-motion-duration $button-motion-ease,
 		border-color $button-motion-duration $button-motion-ease;
 	&:hover {
 		background-color: $button-default-color-hovered;
@@ -106,6 +145,52 @@ $button-motion-ease: var(--motion-ease-in-out);
 			box-shadow: $button-primary-shadow-focus;
 		}
 	}
+	&#{&}--danger {
+		background-color: $button-danger-background-color;
+		color: $button-danger-font-color;
+		&[class*="outline"],
+		&[class*="clean"] {
+			background: transparent;
+			color: $button-danger-outline-font-color;
+		}
+		&[class*="outline"] {
+			border-color: $button-danger-outline-border-color;
+		}
+		&:hover {
+			background-color: $button-danger-background-color-hover;
+			&[class*="outline"],
+			&[class*="clean"] {
+				background-color: $button-danger-outline-background-color-hover;
+				color: $button-danger-outline-font-color-hover;
+			}
+			&[class*="outline"] {
+				border-color: $button-danger-outline-border-color-hover;
+			}
+		}
+		&:active {
+			background-color: $button-danger-background-color-active;
+			&[class*="outline"],
+			&[class*="clean"] {
+				background-color: $button-danger-outline-background-color-active;
+				color: $button-danger-outline-font-color-active;
+			}
+			&[class*="outline"] {
+				border-color: $button-danger-outline-border-color-active;
+			}
+		}
+		&:focus {
+			background-color: $button-danger-background-color-focus;
+			box-shadow: $button-danger-shadow-focus !important;
+			&[class*="outline"],
+			&[class*="clean"] {
+				background-color: $button-danger-outline-background-color-focus;
+				color: $button-danger-outline-font-color-focus;
+			}
+			&[class*="outline"] {
+				border-color: $button-danger-outline-border-color-focus;
+			}
+		}
+	}
 	&:disabled,
 	&#{&}--disabled {
 		pointer-events: none;
@@ -118,6 +203,31 @@ $button-motion-ease: var(--motion-ease-in-out);
 			&[class*="outline"] {
 				border-color: $button-outline-border-color-disabled;
 			}
+		}
+	}
+	&#{&}--link {
+		padding: $button-link-padding-vertical $button-link-padding-horizontal;
+		background: none;
+		border-radius: 0;
+		font-weight: var(--font-weight-regular);
+		color: $button-link-font-color;
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: underline;
+		}
+		&:hover {
+			color: $button-link-font-color-hover;
+		}
+		&:active {
+			color: $button-link-font-color-active;
+		}
+		&:focus {
+			color: $button-link-font-color-focus;
+			box-shadow: none;
+		}
+		&:disabled {
+			color: $button-disabled-font-color;
 		}
 	}
 }
