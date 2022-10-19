@@ -1,38 +1,288 @@
 @import "../../styles/main.scss";
 
 $button-padding-horizontal: var(--spacing-8);
+$button-small-padding-horizontal: var(--spacing-6);
+$button-large-padding-horizontal: var(--spacing-10);
 
 $button-default-color: var(--color-background-surface-neutral);
 $button-default-color-hovered: var(--color-background-surface-neutral-hovered);
 $button-default-color-active: var(--color-background-surface-neutral-active);
 $button-default-color-focus: var(--color-background-surface-neutral-focus);
 
+$button-disabled-background-color: var(--color-background-surface-disabled);
+$button-disabled-font-color: var(--color-text-disabled);
+
+$button-outline-border-color: var(--color-border-neutral-subtle);
+$button-outline-border-color-hover: var(--color-border-neutral-subtle-hovered);
+$button-outline-border-color-active: var(--color-border-neutral-subtle-active);
+$button-outline-border-color-focus: var(--color-border-neutral-subtle-focus);
+$button-outline-border-color-disabled: var(--color-border-disabled);
+$button-outline-background-color-hover: var(
+	--color-background-surface-neutral-subtle-hovered
+);
+$button-outline-background-color-active: var(
+	--color-background-surface-neutral-subtle-active
+);
+$button-outline-background-color-focus: var(
+	--color-background-surface-neutral-subtle-focus
+);
+
+$button-clean-shadow-focus: var(--shadow-focus-subtle);
+
+$button-primary-background-color: var(--color-background-surface-primary);
+$button-primary-background-color-hover: var(
+	--color-background-surface-primary-hovered
+);
+$button-primary-background-color-active: var(
+	--color-background-surface-primary-active
+);
+$button-primary-background-color-focus: var(
+	--color-background-surface-primary-focus
+);
+$button-primary-font-color: var(--color-text-on-dark);
+$button-primary-shadow-focus: var(--shadow-focus-primary);
+
+$button-danger-background-color: var(--color-background-surface-danger);
+$button-danger-background-color-hover: var(
+	--color-background-surface-danger-hovered
+);
+$button-danger-background-color-active: var(
+	--color-background-surface-danger-active
+);
+$button-danger-background-color-focus: var(
+	--color-background-surface-danger-focus
+);
+$button-danger-font-color: var(--color-text-on-dark);
+$button-danger-shadow-focus: var(--shadow-focus-danger);
+
+$button-danger-outline-border-color: var(--color-border-danger);
+$button-danger-outline-border-color-hover: var(--color-border-danger-hovered);
+$button-danger-outline-border-color-active: var(--color-border-danger-active);
+$button-danger-outline-border-color-focus: var(--color-border-danger-focus);
+$button-danger-outline-font-color-hover: var(--color-text-danger-hovered);
+$button-danger-outline-font-color-active: var(--color-text-danger-active);
+$button-danger-outline-font-color-focus: var(--color-text-danger-focus);
+$button-danger-outline-font-color: var(--color-text-danger);
+$button-danger-outline-background-color-hover: var(
+	--color-background-surface-danger-subtle-hovered
+);
+$button-danger-outline-background-color-active: var(
+	--color-background-surface-danger-subtle-active
+);
+$button-danger-outline-background-color-focus: var(
+	--color-background-surface-danger-subtle-focus
+);
+
+$button-link-padding-vertical: 0;
+$button-link-padding-horizontal: var(--spacing-1);
+$button-link-font-color: var(--color-text-interactive);
+$button-link-font-color-hover: var(--color-text-interactive-hovered);
+$button-link-font-color-active: var(--color-text-interactive-active);
+$button-link-font-color-focus: var(--color-text-interactive-focus);
+
+$button-link-danger-font-color-hover: var(--color-text-danger-hovered);
+$button-link-danger-font-color-active: var(--color-text-danger-active);
+$button-link-danger-font-color-focus: var(--color-text-danger-focus);
+$button-link-danger-font-color: var(--color-text-danger);
+
 $button-motion-duration: var(--motion-duration-250);
 $button-motion-ease: var(--motion-ease-in-out);
+
+$button-text-alignments: (left, center, right, start, end);
 
 .Button {
 	@extend %form-action;
 	@extend %unselectable;
 	cursor: pointer;
-	border: none;
 	justify-content: center;
 	text-align: center;
 	padding-left: $button-padding-horizontal;
 	padding-right: $button-padding-horizontal;
 	font-weight: var(--font-weight-semi-bold);
 	background-color: $button-default-color;
-	transition: background-color $button-motion-duration,
-		box-shadow $button-motion-duration $button-motion-ease;
-	&:hover,
-	&.hovered {
+	transition: background-color $button-motion-duration $button-motion-ease,
+		box-shadow $button-motion-duration $button-motion-ease,
+		color $button-motion-duration $button-motion-ease,
+		border-color $button-motion-duration $button-motion-ease;
+	&#{&}--small {
+		padding-left: $button-small-padding-horizontal;
+		padding-right: $button-small-padding-horizontal;
+	}
+	&#{&}--large {
+		padding-left: $button-large-padding-horizontal;
+		padding-right: $button-large-padding-horizontal;
+	}
+	&#{&}--fullWidth {
+		width: 100%;
+	}
+	@include hover {
 		background-color: $button-default-color-hovered;
 	}
-	&:active,
-	&.pressed {
+	@include active {
 		background-color: $button-default-color-active;
 	}
-	&:focus,
-	&.focused {
+	@include focus {
 		background-color: $button-default-color-focus;
+	}
+	&#{&}--outline,
+	&#{&}--clean {
+		background-color: transparent;
+		@include hover {
+			background-color: $button-outline-background-color-hover;
+		}
+		@include active {
+			background-color: $button-outline-background-color-active;
+		}
+		@include focus {
+			background-color: $button-outline-background-color-focus;
+		}
+		&[class*="outline"] {
+			border-color: $button-outline-border-color;
+			@include hover {
+				border-color: $button-outline-border-color-hover;
+			}
+			@include active {
+				border-color: $button-outline-border-color-active;
+			}
+			@include focus {
+				border-color: $button-outline-border-color-focus;
+			}
+		}
+		&[class*="clean"] {
+			@include focus {
+				box-shadow: $button-clean-shadow-focus;
+			}
+		}
+	}
+	&#{&}--primary {
+		background-color: $button-primary-background-color;
+		color: $button-primary-font-color;
+		@include hover {
+			background-color: $button-primary-background-color-hover;
+		}
+		@include active {
+			background-color: $button-primary-background-color-active;
+		}
+		@include focus {
+			background-color: $button-primary-background-color-focus;
+			box-shadow: $button-primary-shadow-focus;
+		}
+	}
+	&#{&}--danger {
+		background-color: $button-danger-background-color;
+		color: $button-danger-font-color;
+		&[class*="outline"],
+		&[class*="clean"] {
+			background: transparent;
+			color: $button-danger-outline-font-color;
+		}
+		&[class*="outline"] {
+			border-color: $button-danger-outline-border-color;
+		}
+		@include hover {
+			background-color: $button-danger-background-color-hover;
+			&[class*="outline"],
+			&[class*="clean"] {
+				background-color: $button-danger-outline-background-color-hover;
+				color: $button-danger-outline-font-color-hover;
+			}
+			&[class*="outline"] {
+				border-color: $button-danger-outline-border-color-hover;
+			}
+		}
+		@include active {
+			background-color: $button-danger-background-color-active;
+			&[class*="outline"],
+			&[class*="clean"] {
+				background-color: $button-danger-outline-background-color-active;
+				color: $button-danger-outline-font-color-active;
+			}
+			&[class*="outline"] {
+				border-color: $button-danger-outline-border-color-active;
+			}
+		}
+		@include focus {
+			background-color: $button-danger-background-color-focus;
+			box-shadow: $button-danger-shadow-focus !important;
+			&[class*="outline"],
+			&[class*="clean"] {
+				background-color: $button-danger-outline-background-color-focus;
+				color: $button-danger-outline-font-color-focus;
+			}
+			&[class*="outline"] {
+				border-color: $button-danger-outline-border-color-focus;
+			}
+		}
+	}
+	&:disabled,
+	&#{&}--disabled {
+		pointer-events: none;
+		cursor: default;
+		background-color: $button-disabled-background-color;
+		color: $button-disabled-font-color;
+		&.Button--outline,
+		&.Button--clean {
+			background: transparent;
+			&[class*="outline"] {
+				border-color: $button-outline-border-color-disabled;
+			}
+		}
+	}
+	&#{&}--link {
+		padding: $button-link-padding-vertical $button-link-padding-horizontal;
+		background: none !important;
+		border-radius: 0;
+		font-weight: var(--font-weight-regular);
+		color: $button-link-font-color;
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: underline;
+		}
+		&[class*="danger"] {
+			color: $button-link-danger-font-color;
+		}
+		@include hover {
+			color: $button-link-font-color-hover;
+			&[class*="danger"] {
+				color: $button-link-danger-font-color-hover;
+			}
+		}
+		@include active {
+			color: $button-link-font-color-active;
+			&[class*="danger"] {
+				color: $button-link-danger-font-color-active;
+			}
+		}
+		@include focus {
+			color: $button-link-font-color-focus;
+			box-shadow: none !important;
+			&[class*="danger"] {
+				color: $button-link-danger-font-color-focus;
+			}
+		}
+		&:disabled {
+			color: $button-disabled-font-color;
+		}
+	}
+	@each $text-alignment in $button-text-alignments {
+		&#{&}--text-align-#{$text-alignment} {
+			@if $text-alignment == "left" or $text-alignment == "start" {
+				justify-content: flex-start;
+			} @else if $text-alignment == "right" or $text-alignment == "end" {
+				justify-content: flex-end;
+			} @else {
+				justify-content: $text-alignment;
+			}
+			text-align: $text-alignment;
+		}
+	}
+	&#{&}--loading {
+		pointer-events: none;
+		.Button {
+			&__TextContent {
+				visibility: hidden;
+			}
+		}
 	}
 }

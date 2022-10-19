@@ -1,9 +1,21 @@
 $form-action-border-radius: --border-radius-9;
+$form-small-action-border-radius: --border-radius-7;
+$form-large-action-border-radius: --border-radius-12;
 
 $form-action-font-size: --font-size-75;
+$form-small-action-font-size: --font-size-50;
+$form-large-action-font-size: pxToRem(18px);
 $form-action-line-height: --font-line-height-3;
+$form-small-action-line-height: --font-line-height-2;
+$form-large-action-line-height: pxToRem(26px);
 
-$form-action-padding-vertical: calc(var(--spacing-3) + var(--spacing-05));
+$form-action-border: solid 1px transparent;
+
+$form-action-padding-vertical: calc(var(--spacing-3) + var(--spacing-05) - 1px);
+$form-small-action-padding-vertical: calc(var(--spacing-2) - 1px);
+$form-large-action-padding-vertical: calc(
+	var(--spacing-4) + var(--spacing-05) - 1px
+);
 
 $form-action-focus-shadow: var(--shadow-focus);
 
@@ -14,11 +26,27 @@ $form-action-focus-shadow: var(--shadow-focus);
 	font-size: var($form-action-font-size);
 	line-height: var($form-action-line-height);
 	display: inline-flex;
+	vertical-align: middle;
 	align-items: center;
 	position: relative;
 	vertical-align: top;
 	padding-top: $form-action-padding-vertical;
 	padding-bottom: $form-action-padding-vertical;
+	border: $form-action-border;
+	&[class*="small"] {
+		padding-top: $form-small-action-padding-vertical;
+		padding-bottom: $form-small-action-padding-vertical;
+		border-radius: var($form-small-action-border-radius);
+		font-size: var($form-small-action-font-size);
+		line-height: var($form-small-action-line-height);
+	}
+	&[class*="large"] {
+		padding-top: $form-large-action-padding-vertical;
+		padding-bottom: $form-large-action-padding-vertical;
+		border-radius: var($form-large-action-border-radius);
+		font-size: $form-large-action-font-size;
+		line-height: $form-large-action-line-height;
+	}
 	&:focus,
 	&.focused {
 		box-shadow: $form-action-focus-shadow;
