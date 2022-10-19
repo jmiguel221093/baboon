@@ -1,4 +1,6 @@
+import { Spinner } from "../Spinner";
 import { cssClassNames } from "../../utils";
+
 import type { ActionProps } from "../../types";
 
 import type { ButtonProps } from "./Button.props";
@@ -7,7 +9,6 @@ import "./Button.styles.scss";
 
 const COMPONENT_NAME = "Button";
 
-/* eslint-disable */
 const Button = ({
 	id,
 	children,
@@ -32,9 +33,7 @@ const Button = ({
 	onTouchStart,
 	onTouchEnd,
 	link,
-	icon,
-	iconPosition,
-	size,
+	size = "medium",
 	textAlign = "center",
 	fullWidth,
 }: ButtonProps) => {
@@ -55,7 +54,7 @@ const Button = ({
 		textAlign && `text-align-${textAlign}`
 	);
 
-	const actionProps: ActionProps = {
+	const actionProps: ActionProps & { type: "submit" | "button" } = {
 		id,
 		type: submit ? "submit" : "button",
 		disabled,
@@ -75,9 +74,12 @@ const Button = ({
 		<span className={`${COMPONENT_NAME}__TextContent`}>{children}</span>
 	) : null;
 
+	const spinnerMarkup = loading ? <Spinner /> : null;
+
 	return (
 		<button className={className} {...actionProps}>
 			{childrenMarkup}
+			{spinnerMarkup}
 		</button>
 	);
 };

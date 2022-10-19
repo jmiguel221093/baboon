@@ -33,6 +33,4 @@ export interface ActionProps {
 	onTouchStart?: () => void;
 	/** Callback triggered when touch ends */
 	onTouchEnd?: () => void;
-	/** Button type */
-	type?: "submit" | "button";
 }
