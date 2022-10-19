@@ -1,4 +1,5 @@
 import { cssClassNames } from "../../utils";
+import type { ActionProps } from "../../types";
 
 import type { ButtonProps } from "./Button.props";
 
@@ -34,21 +35,49 @@ const Button = ({
 	icon,
 	iconPosition,
 	size,
-	textAlign,
+	textAlign = "center",
 	fullWidth,
 }: ButtonProps) => {
-	const classNames = cssClassNames(
+	const className = cssClassNames(
 		COMPONENT_NAME,
 		primary && "primary",
 		disabled && "disabled",
 		outline && "outline",
 		clean && "clean",
 		danger && "danger",
-		link && "link"
+		link && "link",
+		size,
+		hovered && "hovered",
+		pressed && "pressed",
+		focused && "focused",
+		fullWidth && "fullWidth",
+		loading && "loading",
+		textAlign && `text-align-${textAlign}`
 	);
+
+	const actionProps: ActionProps = {
+		id,
+		type: submit ? "submit" : "button",
+		disabled,
+		onClick,
+		onFocus,
+		onBlur,
+		onKeyDown,
+		onKeyPress,
+		onKeyUp,
+		onMouseEnter,
+		onMouseLeave,
+		onTouchEnd,
+		onTouchStart,
+	};
+
+	const childrenMarkup = children ? (
+		<span className={`${COMPONENT_NAME}__TextContent`}>{children}</span>
+	) : null;
+
 	return (
-		<button id={id} className={classNames} disabled={disabled}>
-			{children}
+		<button className={className} {...actionProps}>
+			{childrenMarkup}
 		</button>
 	);
 };

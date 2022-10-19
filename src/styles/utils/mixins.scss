@@ -3,3 +3,24 @@
 	-webkit-user-select: none;
 	-moz-user-select: none;
 }
+
+@mixin hover {
+	&[class*="hovered"],
+	&:hover {
+		@content;
+	}
+}
+
+@mixin active {
+	&[class*="pressed"],
+	&:active {
+		@content;
+	}
+}
+
+@mixin focus {
+	&[class*="focused"],
+	&:focus {
+		@content;
+	}
+}

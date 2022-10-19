@@ -1,0 +1,39 @@
+@use "sass:math";
+
+@function decimal-round($number, $digits: 0, $mode: round) {
+	$n: 1;
+
+	@if type-of($number) != number {
+		@warn '#{ $number } no es un número.';
+		@return $number;
+	}
+
+	@if type-of($digits) != number {
+		@warn '#{ $digits } no es un número.';
+		@return $number;
+	} @else if not unitless($digits) {
+		@warn '#{ $digits } no es un número.';
+		@return $number;
+	}
+	@for $i from 1 through $digits {
+		$n: $n * 10;
+	}
+	@if $mode == round {
+		@return round($number * $n) / $n;
+	} @else if $mode == ceil {
+		@return ceil($number * $n) / $n;
+	} @else if $mode == floor {
+		$result: math.div(floor($number * $n), $n);
+		@return $result;
+	} @else {
+		@warn '#{ $mode }';
+		@return $number;
+	}
+}
+
+@function pxToRem($value, $digits: 2) {
+	$valueRem: math.div($value, 16px);
+	$result: decimal-round($valueRem, $digits, floor);
+
+	@return $result + rem;
+}

@@ -14,23 +14,25 @@ export interface ActionProps {
 	/** Sets button style in focused state */
 	focused?: boolean;
 	/** Callback triggered when button is clicked */
-	onClick?: boolean;
+	onClick?: () => void;
 	/** Callback triggered when button is focused */
-	onFocus?: boolean;
+	onFocus?: () => void;
 	/** Callback triggered when button is blurred */
-	onBlur?: boolean;
+	onBlur?: () => void;
 	/** Callback triggered when button has registered keypress event */
-	onKeyPress?: boolean;
+	onKeyPress?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
 	/** Callback triggered when button has registered keyup event */
-	onKeyUp?: boolean;
+	onKeyUp?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
 	/** Callback triggered when button has registered keydown event */
-	onKeyDown?: boolean;
+	onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
 	/** Callback triggered when mouse enters to button surface */
-	onMouseEnter?: boolean;
+	onMouseEnter?: () => void;
 	/** Callback triggered when mouse leaves the button surface */
-	onMouseLeave?: boolean;
+	onMouseLeave?: () => void;
 	/** Callback triggered when button is touched */
-	onTouchStart?: boolean;
+	onTouchStart?: () => void;
 	/** Callback triggered when touch ends */
-	onTouchEnd?: boolean;
+	onTouchEnd?: () => void;
+	/** Button type */
+	type?: "submit" | "button";
 }
