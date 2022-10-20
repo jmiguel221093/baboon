@@ -26,7 +26,7 @@
 				"description": "Used as background color in components with success states such as Button, Badge, Icon, Slider and Tag"
 			},
 			"surface-warning": {
-				"value": "{color.base.yellow.500}",
+				"value": "{color.base.yellow.600}",
 				"description": "Used as background color in components with warning states such as Button, Badge, Icon, Slider and Tag"
 			},
 			"surface-info": {
@@ -47,15 +47,15 @@
 					"description": "For use as a subtle background in components when they have danger state"
 				},
 				"success-subtle": {
-					"value": "{color.base.green.50}",
+					"value": "{color.base.green.200}",
 					"description": "For use as a subtle background in components when they have success state"
 				},
 				"warning-subtle": {
-					"value": "{color.base.yellow.50}",
+					"value": "{color.base.yellow.200}",
 					"description": "For use as a subtle background in components when they have warning state"
 				},
 				"info-subtle": {
-					"value": "{color.base.blue.50}",
+					"value": "{color.base.blue.200}",
 					"description": "For use as a subtle background in components when they have info state"
 				},
 				"neutral": {
