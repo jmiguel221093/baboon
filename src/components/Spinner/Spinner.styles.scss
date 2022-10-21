@@ -1,0 +1,17 @@
+@import "../../styles/main.scss";
+
+$spinner-motion-duration: var(--motion-duration-500);
+
+.Spinner {
+	display: inline-flex;
+	animation: var(--motion-keyframes-spin) $spinner-motion-duration linear
+		infinite;
+	@keyframes baboon-keyframes-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}

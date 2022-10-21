@@ -283,6 +283,13 @@ $button-text-alignments: (left, center, right, start, end);
 			&__TextContent {
 				visibility: hidden;
 			}
+			&__Spinner {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				line-height: 0;
+			}
 		}
 	}
 }

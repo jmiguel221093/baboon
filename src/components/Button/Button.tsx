@@ -74,7 +74,11 @@ const Button = ({
 		<span className={`${COMPONENT_NAME}__TextContent`}>{children}</span>
 	) : null;
 
-	const spinnerMarkup = loading ? <Spinner /> : null;
+	const spinnerMarkup = loading ? (
+		<span className="Button__Spinner">
+			<Spinner />
+		</span>
+	) : null;
 
 	return (
 		<button className={className} {...actionProps}>
