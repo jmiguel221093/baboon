@@ -5,6 +5,7 @@ import { Icon } from "../Icon";
 import { cssClassNames } from "../../utils";
 
 import type { ActionProps } from "../../types";
+import type { SpinnerSizeType } from "../Spinner";
 import type { IconSourceType } from "../Icon";
 
 import type { ButtonProps } from "./Button.props";
@@ -12,6 +13,12 @@ import type { ButtonProps } from "./Button.props";
 import "./Button.styles.scss";
 
 const COMPONENT_NAME = "Button";
+
+const spinnerSizes: { [k: string]: SpinnerSizeType } = {
+	small: "1",
+	medium: "2",
+	large: "4",
+};
 
 const Button = ({
 	id,
@@ -91,7 +98,7 @@ const Button = ({
 
 	const spinnerMarkup = loading ? (
 		<span className="Button__Spinner">
-			<Spinner size="2" />
+			<Spinner size={spinnerSizes[size]} />
 		</span>
 	) : null;
 
@@ -104,6 +111,7 @@ const Button = ({
 	);
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isValidIcon = (icon: any): icon is IconSourceType =>
 	typeof icon === "string" || typeof icon === "function";
 
