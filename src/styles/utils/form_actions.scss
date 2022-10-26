@@ -33,12 +33,19 @@ $form-action-focus-shadow: var(--shadow-focus);
 	padding-top: $form-action-padding-vertical;
 	padding-bottom: $form-action-padding-vertical;
 	border: $form-action-border;
+	svg {
+		width: auto;
+		height: var($form-action-line-height);
+	}
 	&[class*="small"] {
 		padding-top: $form-small-action-padding-vertical;
 		padding-bottom: $form-small-action-padding-vertical;
 		border-radius: var($form-small-action-border-radius);
 		font-size: var($form-small-action-font-size);
 		line-height: var($form-small-action-line-height);
+		svg {
+			height: var($form-small-action-line-height);
+		}
 	}
 	&[class*="large"] {
 		padding-top: $form-large-action-padding-vertical;
@@ -46,6 +53,9 @@ $form-action-focus-shadow: var(--shadow-focus);
 		border-radius: var($form-large-action-border-radius);
 		font-size: $form-large-action-font-size;
 		line-height: $form-large-action-line-height;
+		svg {
+			height: $form-large-action-line-height;
+		}
 	}
 	&:focus,
 	&.focused {

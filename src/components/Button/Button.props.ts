@@ -1,4 +1,4 @@
-import type { ReactElement } from "react";
+import type { ReactNode } from "react";
 import type { ActionProps, IconType } from "../../types";
 
 export interface ButtonProps extends ActionProps {
@@ -24,7 +24,7 @@ export interface ButtonProps extends ActionProps {
 	/** Gives button style to looks like a link */
 	link?: boolean;
 	/** Renders an icon to be displayed next to button content */
-	icon?: ReactElement | IconType;
+	icon?: ReactNode | IconType;
 	/**
 	 * Where icon will be displayed in button content
 	 * @default 'left'

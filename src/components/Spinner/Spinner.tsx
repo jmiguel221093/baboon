@@ -5,7 +5,7 @@ import "./Spinner.styles.scss";
 
 const COMPONENT_NAME = "Spinner";
 
-const Spinner = ({ size }: SpinnerProps) => {
+const Spinner = ({ size = "3" }: SpinnerProps) => {
 	const className = cssClassNames(COMPONENT_NAME, size && `size-${size}`);
 	return (
 		<div className={className}>
@@ -15,7 +15,7 @@ const Spinner = ({ size }: SpinnerProps) => {
 				viewBox="0 0 24 24"
 				fill="none"
 				stroke="currentColor"
-				strokeWidth={2}
+				strokeWidth={3}
 				strokeDasharray="50 50"
 				strokeDashoffset="-20"
 				strokeLinecap="round"

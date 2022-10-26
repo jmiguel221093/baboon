@@ -26,6 +26,10 @@
 				"description": "For use in info icons"
 			},
 			"background": {
+				"primary": {
+					"value": "{color.base.gray.900}",
+					"description": "For use as backdrop background for primary icons"
+				},
 				"subtle": {
 					"value": "{color.base.gray.200}",
 					"description": "For use as backdrop background for subtle icons"

@@ -13,5 +13,10 @@ const Template = (args: SpinnerProps) => <Spinner {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {
-	size: "medium",
+	size: "3",
+};
+
+export const Size = Template.bind({});
+Size.args = {
+	size: "3",
 };

@@ -90,6 +90,10 @@ $button-motion-ease: var(--motion-ease-in-out);
 
 $button-text-alignments: (left, center, right, start, end);
 
+$button-gap: var(--spacing-3);
+$button-small-gap: var(--spacing-2);
+$button-large-gap: var(--spacing-4);
+
 .Button {
 	@extend %form-action;
 	@extend %unselectable;
@@ -104,13 +108,19 @@ $button-text-alignments: (left, center, right, start, end);
 		box-shadow $button-motion-duration $button-motion-ease,
 		color $button-motion-duration $button-motion-ease,
 		border-color $button-motion-duration $button-motion-ease;
+	gap: $button-gap;
+	&#{&}--icon-position-right {
+		flex-direction: row-reverse;
+	}
 	&#{&}--small {
 		padding-left: $button-small-padding-horizontal;
 		padding-right: $button-small-padding-horizontal;
+		gap: $button-small-gap;
 	}
 	&#{&}--large {
 		padding-left: $button-large-padding-horizontal;
 		padding-right: $button-large-padding-horizontal;
+		gap: $button-large-gap;
 	}
 	&#{&}--fullWidth {
 		width: 100%;
@@ -277,10 +287,14 @@ $button-text-alignments: (left, center, right, start, end);
 			text-align: $text-alignment;
 		}
 	}
+	& > &__Icon {
+		line-height: 0;
+	}
 	&#{&}--loading {
 		pointer-events: none;
 		.Button {
-			&__TextContent {
+			&__TextContent,
+			&__Icon {
 				visibility: hidden;
 			}
 			&__Spinner {

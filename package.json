@@ -10,7 +10,8 @@
 		"prepare": "husky install",
 		"lint": "eslint \"**/*.{ts,tsx}\"",
 		"start": "yarn storybook",
-		"test": "jest"
+		"test": "jest",
+		"test:watch": "jest --watch"
 	},
 	"repository": {
 		"type": "git",
