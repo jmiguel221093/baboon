@@ -65,7 +65,8 @@ const Button = ({
 		fullWidth && "fullWidth",
 		loading && "loading",
 		textAlign && `text-align-${textAlign}`,
-		iconPosition && `icon-position-${iconPosition}`
+		iconPosition && `icon-position-${iconPosition}`,
+		!children && icon && "icon-only"
 	);
 
 	const actionProps: ActionProps & { type: "submit" | "button" } = {

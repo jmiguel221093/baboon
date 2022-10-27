@@ -30,8 +30,16 @@ describe("Button", () => {
 			expect(button.prop("danger")).toBeTruthy();
 		});
 	});
-	describe("size: small", () => {
-		it("passes prop", () => {
+	describe("size", () => {
+		it("passes prop as extra small", () => {
+			const mockChildren = "mock children";
+			const mockSize = "extra-small";
+			const button = mount(
+				<Button size={mockSize}>{mockChildren}</Button>
+			);
+			expect(button.prop("size")).toBe(mockSize);
+		});
+		it("passes prop as small", () => {
 			const mockChildren = "mock children";
 			const mockSize = "small";
 			const button = mount(
@@ -39,9 +47,7 @@ describe("Button", () => {
 			);
 			expect(button.prop("size")).toBe(mockSize);
 		});
-	});
-	describe("size: medium", () => {
-		it("passes prop", () => {
+		it("passes prop as medium", () => {
 			const mockChildren = "mock children";
 			const mockSize = "medium";
 			const button = mount(
@@ -49,9 +55,7 @@ describe("Button", () => {
 			);
 			expect(button.prop("size")).toBe(mockSize);
 		});
-	});
-	describe("size: large", () => {
-		it("passes prop", () => {
+		it("passes prop as large", () => {
 			const mockChildren = "mock children";
 			const mockSize = "large";
 			const button = mount(

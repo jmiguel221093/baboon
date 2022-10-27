@@ -180,3 +180,8 @@ TextAlignEnd.args = {
 	fullWidth: true,
 	textAlign: "end",
 };
+
+export const IconOnly = Template.bind({});
+IconOnly.args = {
+	icon: FilterIcon,
+};

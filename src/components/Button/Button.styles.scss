@@ -2,6 +2,7 @@
 
 $button-padding-horizontal: var(--spacing-8);
 $button-small-padding-horizontal: var(--spacing-6);
+$button-extra-small-padding-horizontal: var(--spacing-4);
 $button-large-padding-horizontal: var(--spacing-10);
 
 $button-default-color: var(--color-background-surface-neutral);
@@ -92,6 +93,7 @@ $button-text-alignments: (left, center, right, start, end);
 
 $button-gap: var(--spacing-3);
 $button-small-gap: var(--spacing-2);
+$button-extra-small-gap: var(--spacing-2);
 $button-large-gap: var(--spacing-4);
 
 .Button {
@@ -109,18 +111,39 @@ $button-large-gap: var(--spacing-4);
 		color $button-motion-duration $button-motion-ease,
 		border-color $button-motion-duration $button-motion-ease;
 	gap: $button-gap;
+	&#{&}--icon-only {
+		padding-left: $form-action-padding-vertical;
+		padding-right: $form-action-padding-vertical;
+	}
 	&#{&}--icon-position-right {
 		flex-direction: row-reverse;
+	}
+	&#{&}--extra-small {
+		padding-left: $button-extra-small-padding-horizontal;
+		padding-right: $button-extra-small-padding-horizontal;
+		gap: $button-extra-small-gap;
+		&[class*="icon-only"] {
+			padding-left: $form-extra-small-action-padding-vertical;
+			padding-right: $form-extra-small-action-padding-vertical;
+		}
 	}
 	&#{&}--small {
 		padding-left: $button-small-padding-horizontal;
 		padding-right: $button-small-padding-horizontal;
 		gap: $button-small-gap;
+		&[class*="icon-only"] {
+			padding-left: $form-small-action-padding-vertical;
+			padding-right: $form-small-action-padding-vertical;
+		}
 	}
 	&#{&}--large {
 		padding-left: $button-large-padding-horizontal;
 		padding-right: $button-large-padding-horizontal;
 		gap: $button-large-gap;
+		&[class*="icon-only"] {
+			padding-left: $form-large-action-padding-vertical;
+			padding-right: $form-large-action-padding-vertical;
+		}
 	}
 	&#{&}--fullWidth {
 		width: 100%;

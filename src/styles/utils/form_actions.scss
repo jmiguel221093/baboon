@@ -1,18 +1,24 @@
 $form-action-border-radius: --border-radius-9;
 $form-small-action-border-radius: --border-radius-7;
+$form-extra-small-action-border-radius: --border-radius-5;
 $form-large-action-border-radius: --border-radius-12;
 
 $form-action-font-size: --font-size-75;
 $form-small-action-font-size: --font-size-50;
+$form-extra-small-action-font-size: --font-size-50;
 $form-large-action-font-size: pxToRem(18px);
 $form-action-line-height: --font-line-height-3;
 $form-small-action-line-height: --font-line-height-2;
+$form-extra-small-action-line-height: calc(var(--font-line-height-7) / 2);
 $form-large-action-line-height: pxToRem(26px);
 
 $form-action-border: solid 1px transparent;
 
 $form-action-padding-vertical: calc(var(--spacing-3) + var(--spacing-05) - 1px);
 $form-small-action-padding-vertical: calc(var(--spacing-2) - 1px);
+$form-extra-small-action-padding-vertical: calc(
+	var(--spacing-2) - var(--spacing-05) - 1px
+);
 $form-large-action-padding-vertical: calc(
 	var(--spacing-4) + var(--spacing-05) - 1px
 );
@@ -45,6 +51,16 @@ $form-action-focus-shadow: var(--shadow-focus);
 		line-height: var($form-small-action-line-height);
 		svg {
 			height: var($form-small-action-line-height);
+		}
+	}
+	&[class*="extra-small"] {
+		padding-top: $form-extra-small-action-padding-vertical;
+		padding-bottom: $form-extra-small-action-padding-vertical;
+		border-radius: var($form-extra-small-action-border-radius);
+		font-size: $form-extra-small-action-font-size;
+		line-height: $form-extra-small-action-line-height;
+		svg {
+			height: $form-extra-small-action-line-height;
 		}
 	}
 	&[class*="large"] {

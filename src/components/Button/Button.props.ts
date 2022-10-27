@@ -12,7 +12,7 @@ export interface ButtonProps extends ActionProps {
 	 * Sets the size of the button, changing font, margin and padding dimensions
 	 * @default 'medium'
 	 */
-	size?: "small" | "medium" | "large";
+	size?: "extra-small" | "small" | "medium" | "large";
 	/** Sets outline style to the button indetifying the action as a secondary action */
 	outline?: boolean;
 	/** Sets clean style to the button indetifying the action in a lower priority */
