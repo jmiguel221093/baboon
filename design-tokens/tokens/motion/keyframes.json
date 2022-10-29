@@ -1,0 +1,9 @@
+{
+	"motion": {
+		"keyframes": {
+			"spin": {
+				"value": "baboon-keyframes-spin"
+			}
+		}
+	}
+}

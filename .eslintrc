@@ -48,6 +48,7 @@
 			}
 		],
 		"no-empty": "error",
+		"no-console": ["error", { "allow": ["warn", "error"] }],
 		"eqeqeq": "error",
 		"curly": "error",
 		"object-curly-spacing": ["error", "always"],

@@ -1,0 +1,107 @@
+@import "../../styles/main.scss";
+
+$icon-on-backdrop-color-on-dark: var(--color-icon-on-dark);
+$icon-on-backdrop-color-neutral: var(--color-icon-subtle);
+
+$icon-backdrop-spacing: var(--spacing-1);
+$icon-backdrop-radius: var(--border-radius-6);
+
+$icon-colors: (
+	success: var(--color-icon-success),
+	warning: var(--color-icon-warning),
+	danger: var(--color-icon-danger),
+	neutral: var(--color-icon-subtle),
+	info: var(--color-icon-info),
+	on-dark: var(--color-icon-on-dark),
+);
+
+$icon-backdrop-colors: (
+	primary: var(--color-icon-background-primary),
+	success: var(--color-icon-background-success),
+	warning: var(--color-icon-background-warning),
+	danger: var(--color-icon-background-danger),
+	neutral: var(--color-icon-background-subtle),
+	info: var(--color-icon-background-info),
+	on-dark: var(--color-icon-background-on-dark),
+);
+
+$icon-sizes: (
+	tiny: pxToRem(20px),
+	small: pxToRem(24px),
+	medium: pxToRem(30px),
+	large: pxToRem(36px),
+	extra-large: pxToRem(40px),
+	huge: pxToRem(120px),
+);
+
+$icon-sizes-spacings: (
+	tiny: var(--spacing-05),
+	small: var(--spacing-1),
+	medium: calc(var(--spacing-1) + var(--spacing-025)),
+	large: calc(var(--spacing-1) + var(--spacing-05)),
+	extra-large: var(--spacing-2),
+	huge: calc(var(--spacing-8) - var(--spacing-05)),
+);
+
+$icon-sizes-border-radius: (
+	tiny: var(--border-radius-4),
+	small: var(--border-radius-6),
+	medium: var(--border-radius-8),
+	large: var(--border-radius-10),
+	extra-large: var(--border-radius-12),
+	huge: var(--border-radius-23),
+);
+
+.Icon {
+	display: inline-block;
+	line-height: 0;
+	@each $name, $color in $icon-colors {
+		&--color-#{$name}:not(#{&}--backdrop) {
+			color: $color;
+		}
+	}
+	@each $name, $color in $icon-backdrop-colors {
+		&--color-#{$name}#{&}--backdrop {
+			padding: $icon-backdrop-spacing;
+			border-radius: $icon-backdrop-radius;
+			background-color: $color;
+			@if $name != neutral {
+				color: $icon-on-backdrop-color-on-dark;
+			} @else {
+				color: inherit;
+			}
+		}
+	}
+	@each $name, $size in $icon-sizes {
+		&--size-#{$name} {
+			img,
+			svg,
+			.Icon__StringSource {
+				width: $size;
+				height: $size;
+			}
+			span {
+				font-size: $size;
+			}
+			&[class*="backdrop"] {
+				padding: map-get($icon-sizes-spacings, $name);
+				border-radius: map-get($icon-sizes-border-radius, $name);
+			}
+		}
+	}
+	.Icon__StringSource {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&--filled {
+		svg {
+			fill: currentColor;
+		}
+	}
+	&--outlined {
+		svg {
+			stroke: currentColor;
+		}
+	}
+}
