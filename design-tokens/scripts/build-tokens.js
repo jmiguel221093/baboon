@@ -1,9 +1,10 @@
 const StyleDictionary = require("style-dictionary");
 const matcher = require("./matcher");
 const transformer = require("./transformer");
-const config = require("../config");
+const { designTokens, breakpoints } = require("../config");
 
-const StyleDictionaryBase = StyleDictionary.extend(config);
+const StyleDictionaryBase = StyleDictionary.extend(designTokens);
+const StyleDictionaryBreakpoints = StyleDictionary.extend(breakpoints);
 
 StyleDictionaryBase.registerTransform({
 	name: "sizing/pxToRem",
@@ -20,3 +21,5 @@ StyleDictionaryBase.registerTransformGroup({
 
 StyleDictionaryBase.buildPlatform("scss");
 StyleDictionaryBase.buildPlatform("js");
+
+StyleDictionaryBreakpoints.buildPlatform("scss");
