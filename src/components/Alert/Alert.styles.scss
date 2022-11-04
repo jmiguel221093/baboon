@@ -1,0 +1,251 @@
+@import "../../styles/main.scss";
+
+$alert-gap: var(--spacing-4);
+
+$alert-spacing: var(--spacing-6);
+$alert-desktop-spacing: var(--spacing-8);
+
+$alert-border-radius: var(--border-radius-16);
+
+$alert-heading-spacing: var(--spacing-3);
+$alert-footer-actions-spacing-top: var(--spacing-5);
+$alert-footer-actions-gap: var(--spacing-4);
+
+$alert-secondary-action-spacing-horizontal: var(--spacing-2);
+$alert-secondary-action-spacing-vertical: var(--spacing-1);
+$alert-secondary-action-border-radius: var(--border-radius-7);
+$alert-secondary-action-background-color: none;
+$alert-secondary-action-font-color: var(--color-text-interactive);
+$alert-secondary-action-font-color-hover: var(--color-text-interactive-hovered);
+$alert-secondary-action-font-color-active: var(--color-text-interactive-active);
+$alert-secondary-action-font-color-focus: var(--color-text-interactive-focus);
+
+$alert-default-color: var(--color-background-surface-disabled);
+
+$alert-dismiss-button-spacing: var(--spacing-5);
+$alert-dismiss-button-size: pxToRem(28px);
+$alert-dismiss-button-icon-size: pxToRem(16px);
+$alert-dismiss-button-border-radius: var(--border-radius-5);
+$alert-dismiss-button-background-color: #000;
+$alert-dismiss-button-focus-shadow: var(--shadow-focus-primary);
+$alert-dismiss-button-hover-opacity: 0.1;
+$alert-dismiss-button-active-opacity: 0.2;
+$alert-dismiss-button-focus-opacity: 0.35;
+
+$alert-dismiss-button-motion-duration: var(--motion-duration-250);
+$alert-dismiss-button-motion-ease: var(--motion-ease-in-out);
+
+$alert-dismissible-padding-right: calc(var(--spacing-10) + var(--spacing-6));
+
+$alert-statuses: ("success", "info", "warning", "danger", "primary");
+
+$alert-status-background-colors: (
+	"success": var(--color-base-green-200),
+	"info": var(--color-base-blue-200),
+	"warning": var(--color-base-yellow-200),
+	"danger": var(--color-base-red-200),
+	"primary": var(--color-background-surface-primary),
+);
+$alert-status-icon-colors: (
+	"success": var(--color-base-green-700),
+	"info": var(--color-base-blue-700),
+	"warning": var(--color-base-yellow-700),
+	"danger": var(--color-base-red-700),
+	"primary": var(--color-text-on-dark),
+);
+
+$alert-status-primary-font-color: var(--color-text-on-dark);
+$alert-status-primary-dismiss-button-icon-color: var(--color-icon-on-dark);
+$alert-status-primary-dismiss-button-background-color: var(
+	--color-background-surface
+);
+$alert-status-primary-secondary-action-font-color: var(--color-base-gray-400);
+$alert-status-primary-secondary-action-font-color-hover: var(
+	--color-base-gray-300
+);
+$alert-status-primary-secondary-action-font-color-active: var(
+	--color-base-gray-600
+);
+$alert-status-primary-secondary-action-font-color-focus: var(
+	--color-base-gray-500
+);
+$alert-status-primary-primary-action-padding-horizontal: var(--spacing-8);
+$alert-status-primary-primary-action-font-weight: var(--font-weight-semi-bold);
+$alert-status-primary-primary-action-font-color: var(--color-text-on-dark);
+$alert-status-primary-primary-action-background-color: var(
+	--color-base-gray-800
+);
+$alert-status-primary-primary-action-background-color-hover: var(
+	--color-base-gray-700
+);
+$alert-status-primary-primary-action-background-color-focus: var(
+	--color-base-gray-600
+);
+$alert-status-primary-primary-action-background-color-active: var(
+	--color-base-gray-500
+);
+$alert-status-primary-primary-action-focus-shadow: var(--shadow-focus-primary);
+$alert-status-primary-primary-action-motion-duration: var(
+	--motion-duration-250
+);
+$alert-status-primary-primary-action-motion-ease: var(--motion-ease-in-out);
+
+.Alert {
+	position: relative;
+	display: flex;
+	gap: $alert-gap;
+	padding: $alert-spacing;
+	border-radius: $alert-border-radius;
+	background-color: $alert-default-color;
+	@include md {
+		padding: $alert-desktop-spacing;
+	}
+	&__MainContent {
+		flex: 1 1 0;
+	}
+	&__DismissButton {
+		position: absolute;
+		top: $alert-dismiss-button-spacing;
+		right: $alert-dismiss-button-spacing;
+		.UnstyledButton {
+			position: relative;
+			width: $alert-dismiss-button-size;
+			height: $alert-dismiss-button-size;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			cursor: pointer;
+			border-radius: $alert-dismiss-button-border-radius;
+			border: none;
+			background: none;
+			transition: box-shadow $alert-dismiss-button-motion-duration
+				$alert-dismiss-button-motion-ease;
+			z-index: 1;
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: $alert-dismiss-button-border-radius;
+				background-color: $alert-dismiss-button-background-color;
+				opacity: 0;
+				transition: opacity $alert-dismiss-button-motion-duration
+					$alert-dismiss-button-motion-ease;
+			}
+			&:hover::before {
+				opacity: $alert-dismiss-button-hover-opacity;
+			}
+			&:active::before {
+				opacity: $alert-dismiss-button-active-opacity;
+			}
+			&:focus::before {
+				opacity: $alert-dismiss-button-focus-opacity;
+			}
+			&:focus {
+				box-shadow: $alert-dismiss-button-focus-shadow;
+			}
+			svg {
+				flex: none;
+				width: $alert-dismiss-button-icon-size;
+				height: $alert-dismiss-button-icon-size;
+			}
+		}
+	}
+	&__Heading {
+		margin-bottom: $alert-heading-spacing;
+	}
+	&#{&}--dismissible {
+		padding-right: $alert-dismissible-padding-right;
+	}
+	&__FooterActions {
+		margin-top: $alert-footer-actions-spacing-top;
+		display: flex;
+		align-items: center;
+		gap: $alert-footer-actions-gap;
+	}
+	&__SecondaryAction {
+		.Button {
+			padding: $alert-secondary-action-spacing-vertical
+				$alert-secondary-action-spacing-horizontal;
+			border-radius: $alert-secondary-action-border-radius;
+			background: $alert-secondary-action-background-color;
+			color: $alert-secondary-action-font-color;
+			&:hover {
+				text-decoration: underline;
+				color: $alert-secondary-action-font-color-hover !important;
+			}
+			&:active {
+				color: $alert-secondary-action-font-color-active !important;
+			}
+			&:focus {
+				box-shadow: none;
+				color: $alert-secondary-action-font-color-focus !important;
+			}
+		}
+	}
+	@each $status in $alert-statuses {
+		&--#{$status} {
+			background-color: map-get($alert-status-background-colors, $status);
+			[class*="__Icon"] {
+				color: map-get($alert-status-icon-colors, $status);
+			}
+			@if $status == "primary" {
+				color: $alert-status-primary-font-color;
+				[class*="__DismissButton"] {
+					.UnstyledButton {
+						color: $alert-status-primary-dismiss-button-icon-color;
+						&::before {
+							background-color: $alert-status-primary-dismiss-button-background-color;
+						}
+					}
+				}
+				[class*="__PrimaryAction"] {
+					.UnstyledButton {
+						@extend %form-action;
+						padding-left: $alert-status-primary-primary-action-padding-horizontal;
+						padding-right: $alert-status-primary-primary-action-padding-horizontal;
+						font-weight: $alert-status-primary-primary-action-font-weight;
+						color: $alert-status-primary-primary-action-font-color;
+						background-color: $alert-status-primary-primary-action-background-color;
+						transition: background-color
+								$alert-status-primary-primary-action-motion-duration
+								$alert-status-primary-primary-action-motion-ease,
+							box-shadow
+								$alert-status-primary-primary-action-motion-duration
+								$alert-status-primary-primary-action-motion-ease;
+						cursor: pointer;
+						&:hover {
+							background-color: $alert-status-primary-primary-action-background-color-hover;
+						}
+						&:active {
+							background-color: $alert-status-primary-primary-action-background-color-active;
+						}
+						&:focus {
+							background-color: $alert-status-primary-primary-action-background-color-focus;
+							box-shadow: $alert-status-primary-primary-action-focus-shadow;
+						}
+					}
+				}
+				[class*="__SecondaryAction"] {
+					.Button {
+						color: $alert-status-primary-secondary-action-font-color;
+						&:hover {
+							color: $alert-status-primary-secondary-action-font-color-hover !important;
+						}
+						&:active {
+							color: $alert-status-primary-secondary-action-font-color-active !important;
+						}
+						&:focus {
+							color: $alert-status-primary-secondary-action-font-color-focus !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

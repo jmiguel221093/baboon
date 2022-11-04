@@ -1,0 +1,128 @@
+@import "../../styles/main.scss";
+
+$text-default-color: inherit;
+$text-default-font-size: var(--font-size-75);
+$text-default-font-line-height: var(--font-line-height-4);
+
+$text-caption-size: var(--font-size-50);
+$text-caption-line-height: var(--font-size-2);
+
+$text-styles: (
+	"displayHuge",
+	"displayLarge",
+	"displayMedium",
+	"displaySmall",
+	"heading",
+	"subheading",
+	"label"
+);
+
+$font-styles-weight: (
+	"displayHuge": var(--font-weight-semi-bold),
+	"displayLarge": var(--font-weight-semi-bold),
+	"displayMedium": var(--font-weight-semi-bold),
+	"displaySmall": var(--font-weight-semi-bold),
+	"heading": var(--font-weight-semi-bold),
+	"subheading": var(--font-weight-medium),
+	"label": var(--font-weight-semi-bold),
+);
+
+$text-styles-sizes: (
+	"displayHuge": var(--font-size-600),
+	"displayLarge": var(--font-size-500),
+	"displayMedium": var(--font-size-400),
+	"displaySmall": var(--font-size-200),
+	"heading": var(--font-size-100),
+	"subheading": var(--font-size-75),
+	"label": var(--font-size-75),
+);
+
+$text-styles-line-heights: (
+	"displayHuge": var(--font-line-height-11),
+	"displayLarge": var(--font-line-height-10),
+	"displayMedium": var(--font-line-height-9),
+	"displaySmall": var(--font-line-height-5),
+	"heading": var(--font-line-height-4),
+	"subheading": var(--font-line-height-3),
+	"label": var(--font-line-height-3),
+);
+
+$text-small-styles-sizes: (
+	"displayHuge": var(--font-size-450),
+	"displayLarge": var(--font-size-300),
+	"displayMedium": var(--font-size-250),
+	"displaySmall": var(--font-size-100),
+	"heading": var(--font-size-100),
+	"subheading": var(--font-size-75),
+	"label": var(--font-size-75),
+);
+
+$text-small-styles-line-heights: (
+	"displayHuge": var(--font-line-height-6),
+	"displayLarge": var(--font-line-height-8),
+	"displayMedium": var(--font-line-height-7),
+	"displaySmall": var(--font-line-height-4),
+	"heading": var(--font-line-height-4),
+	"subheading": var(--font-line-height-3),
+	"label": var(--font-line-height-3),
+);
+
+$text-colors: (
+	"primary": var(--color-text-primary),
+	"success": var(--color-text-success),
+	"warning": var(--color-text-warning),
+	"danger": var(--color-text-danger),
+	"info": var(--color-text-info),
+	"neutral": var(--color-text-subtle),
+	"on-dark": var(--color-text-on-dark),
+	"subtle-on-dark": var(--color-text-subtle-on-dark),
+);
+
+@mixin text-styles($text-style) {
+	font-weight: map-get($font-styles-weight, $text-style);
+	font-size: map-get($text-small-styles-sizes, $text-style);
+	line-height: map-get($text-small-styles-line-heights, $text-style);
+	@include md {
+		font-size: map-get($text-styles-sizes, $text-style);
+		line-height: map-get($text-styles-line-heights, $text-style);
+	}
+}
+
+$text-alignments: ("left", "center", "right", "justify");
+
+.Text {
+	&,
+	&#{&}--body {
+		color: $text-default-color;
+		font-size: $text-default-font-size;
+		line-height: $text-default-font-line-height;
+	}
+	&#{&}--caption {
+		font-size: $text-caption-size;
+		line-height: $text-caption-line-height;
+	}
+	&#{&}--truncated {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	&#{&}--hidden {
+		@include hidden;
+	}
+	@each $text-alignment in $text-alignments {
+		&#{&}--align-#{$text-alignment} {
+			text-align: $text-alignment;
+		}
+	}
+	@each $text-style in $text-styles {
+		&#{&}--#{$text-style} {
+			color: currentColor;
+			@include text-styles($text-style);
+		}
+	}
+	@each $text-color-name, $text-color-value in $text-colors {
+		&#{&}--#{$text-color-name} {
+			color: $text-color-value;
+		}
+	}
+}

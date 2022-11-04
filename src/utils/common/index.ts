@@ -1,3 +1,4 @@
 import cssClassNames from "./cssClassNames";
+import XIcon from "./XIcon";
 
-export { cssClassNames };
+export { cssClassNames, XIcon };

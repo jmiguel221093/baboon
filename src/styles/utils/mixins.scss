@@ -24,3 +24,52 @@
 		@content;
 	}
 }
+
+@mixin from($breakpoint) {
+	@media only screen and (min-width: $breakpoint) {
+		@content;
+	}
+}
+
+@mixin to($breakpoint) {
+	@media only screen and (max-width: $breakpoint) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@include from($breakpoint-sm) {
+		@content;
+	}
+}
+
+@mixin md {
+	@include from($breakpoint-md) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@include from($breakpoint-lg) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@include from($breakpoint-xl) {
+		@content;
+	}
+}
+
+@mixin hidden {
+	position: absolute !important;
+	top: 0 !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
