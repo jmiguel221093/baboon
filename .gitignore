@@ -114,6 +114,7 @@ dist
 
 # production
 /build
+/design-tokens/build
 
 # misc
 .DS_Store
