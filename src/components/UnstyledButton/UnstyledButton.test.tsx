@@ -6,4 +6,16 @@ describe("UnstyledButton", () => {
 		render(<UnstyledButton />);
 		expect(screen).toBeTruthy();
 	});
+	describe("children", () => {
+		it("passes prop", () => {
+			render(<UnstyledButton>Test</UnstyledButton>);
+			expect(screen.getByText("Test")).toBeTruthy();
+		});
+	});
+	describe("className", () => {
+		it("passes prop", () => {
+			render(<UnstyledButton className="test" />);
+			expect(screen.getByRole("button")).toHaveClass("test");
+		});
+	});
 });
