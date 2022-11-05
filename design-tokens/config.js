@@ -1,9 +1,9 @@
 const designTokens = {
-	source: ["tokens/**/*.json"],
+	source: ["design-tokens/tokens/**/*.json"],
 	platforms: {
 		scss: {
 			transforms: ["name/cti/kebab", "color/rgb", "sizing/pxToRem"],
-			buildPath: "build/scss/",
+			buildPath: "design-tokens/build/scss/",
 			basePxFontSize: 16,
 			files: [
 				{
@@ -18,7 +18,7 @@ const designTokens = {
 		js: {
 			transformGroup: "js",
 			transforms: ["name/cti/camel", "color/rgb", "sizing/pxToRem"],
-			buildPath: "build/js/",
+			buildPath: "design-tokens/build/js/",
 			files: [
 				{
 					destination: "design-tokens.js",
@@ -34,11 +34,11 @@ const designTokens = {
 };
 
 const breakpoints = {
-	source: ["tokens/**/breakpoints.json"],
+	source: ["design-tokens/tokens/**/breakpoints.json"],
 	platforms: {
 		scss: {
 			transforms: ["name/cti/kebab"],
-			buildPath: "build/scss/",
+			buildPath: "design-tokens/build/scss/",
 			files: [
 				{
 					destination: "breakpoints.scss",
