@@ -5,12 +5,12 @@
 	"scripts": {
 		"build:design-tokens": "node design-tokens/scripts/build-tokens.js",
 		"build:types": "tsc -b",
-		"dev": "yarn build:design-tokens; yarn storybook",
+		"dev": "yarn storybook",
 		"storybook": "yarn build:design-tokens; start-storybook -p 6006",
 		"build-storybook": "build-storybook",
 		"prepare": "husky install",
 		"lint": "eslint \"**/*.{ts,tsx}\"",
-		"start": "yarn build:design-tokens; yarn storybook",
+		"start": "yarn storybook",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"create:component": "node ./scripts/component-creator.js"
