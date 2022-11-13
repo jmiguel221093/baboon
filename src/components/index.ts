@@ -5,3 +5,4 @@ export * from "./Spinner";
 export * from "./Text";
 export * from "./Badge";
 export * from "./UnstyledButton";
+export * from "./TextField";
