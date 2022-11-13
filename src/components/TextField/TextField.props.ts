@@ -1,3 +1,3 @@
 export interface TextFieldProps {
-	children?: React.ReactNode;
+	type?: string;
 }
