@@ -1,3 +1,48 @@
-.TextField {
+@import "../../styles/main.scss";
 
+$text-field-size: var(--font-size-75);
+$text-field-line-height: var(--font-line-height-3);
+$text-field-background-color: var(--color-background-surface);
+
+$text-field-border-color: var(--color-border-neutral-subtle);
+$text-field-border-color-hover: var(--color-border-neutral-subtle-hovered);
+$text-field-border-color-focus: var(--color-border-neutral-subtle-focus);
+$text-field-shadow-focus: var(--shadow-focus);
+
+$text-field-padding-horizontal: var(--spacing-5);
+$text-field-placeholder-color: var(--color-text-disabled);
+
+$text-field-motion-duration: var(--motion-duration-250);
+$text-field-motion-ease: var(--motion-ease-in-out);
+
+.TextField {
+	@extend %form-action;
+	border: 1px solid $text-field-border-color;
+	padding-left: $text-field-padding-horizontal;
+	padding-right: $text-field-padding-horizontal;
+	background-color: $text-field-background-color;
+	transition: background-color $text-field-motion-duration
+			$text-field-motion-ease,
+		box-shadow $text-field-motion-duration $text-field-motion-ease,
+		color $text-field-motion-duration $text-field-motion-ease,
+		border-color $text-field-motion-duration $text-field-motion-ease;
+	&:hover {
+		border-color: $text-field-border-color-hover;
+	}
+	&#{&}--focused {
+		border-color: $text-field-border-color-focus;
+		box-shadow: $text-field-shadow-focus;
+	}
+	input {
+		background: none;
+		appearance: none;
+		border: none;
+		outline: none;
+		font-size: $text-field-size;
+		line-height: $text-field-line-height;
+		font-size: inherit;
+		&::placeholder {
+			color: $text-field-placeholder-color;
+		}
+	}
 }

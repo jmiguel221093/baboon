@@ -12,4 +12,6 @@ export default {
 const Template = (args: TextFieldProps) => <TextField {...args} />;
 
 export const Basic = Template.bind({});
-Basic.args = {};
+Basic.args = {
+	placeholder: "Placeholder",
+};
