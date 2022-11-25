@@ -1,0 +1,28 @@
+@import "../../styles/main.scss";
+
+$error-legend-gap: var(--spacing-2);
+$error-legend-error-text-color: var(--color-text-danger);
+
+$error-text-size: var(--font-size-75);
+$error-text-line-height: var(--font-line-height-3);
+
+$error-legend-icon-size: pxToRem(20px);
+
+.ErrorLegend {
+	display: inline-flex;
+	align-items: center;
+	vertical-align: middle;
+	gap: $error-legend-gap;
+	color: $error-legend-error-text-color;
+	font-size: $error-text-size;
+	line-height: $error-text-line-height;
+	&__IconWrapper {
+		line-height: 0;
+		span {
+			& > * {
+				width: $error-legend-icon-size;
+				height: $error-legend-icon-size;
+			}
+		}
+	}
+}

@@ -1,5 +1,7 @@
 @import "../../styles/main.scss";
 
+$text-field-inner-spacing: var(--spacing-3);
+
 $text-field-size: var(--font-size-75);
 $text-field-line-height: var(--font-line-height-3);
 $text-field-background-color: var(--color-background-surface);
@@ -10,39 +12,117 @@ $text-field-border-color-focus: var(--color-border-neutral-subtle-focus);
 $text-field-shadow-focus: var(--shadow-focus);
 
 $text-field-padding-horizontal: var(--spacing-5);
+$text-field-padding-with-action: pxToRem(6px);
 $text-field-placeholder-color: var(--color-text-disabled);
 
 $text-field-motion-duration: var(--motion-duration-250);
 $text-field-motion-ease: var(--motion-ease-in-out);
 
+$text-field-prefix-suffix-text-color: var(--color-text-subtle);
+$text-field-prefix-with-icon-margin: var(--spacing-1);
+
+$text-field-error-border-color: var(--color-border-danger);
+$text-field-error-shadow-focus: var(--shadow-focus-danger);
+
+$text-field-disabled-background-color: var(--color-background-surface-disabled);
+$text-field-disabled-border-color: var(--color-border-disabled);
+$text-field-disabled-text-color: var(--color-text-disabled);
+$text-field-disabled-placeholder-color: var(--color-base-gray-400);
+
 .TextField {
-	@extend %form-action;
-	border: 1px solid $text-field-border-color;
-	padding-left: $text-field-padding-horizontal;
-	padding-right: $text-field-padding-horizontal;
-	background-color: $text-field-background-color;
-	transition: background-color $text-field-motion-duration
-			$text-field-motion-ease,
-		box-shadow $text-field-motion-duration $text-field-motion-ease,
-		color $text-field-motion-duration $text-field-motion-ease,
-		border-color $text-field-motion-duration $text-field-motion-ease;
-	&:hover {
-		border-color: $text-field-border-color-hover;
+	width: 100%;
+	&__InputWrapper {
+		width: 100%;
+		@extend %form-action;
+		border-color: $text-field-border-color;
+		padding-left: $text-field-padding-horizontal;
+		padding-right: $text-field-padding-horizontal;
+		background-color: $text-field-background-color;
+		transition: background-color $text-field-motion-duration
+				$text-field-motion-ease,
+			box-shadow $text-field-motion-duration $text-field-motion-ease,
+			color $text-field-motion-duration $text-field-motion-ease,
+			border-color $text-field-motion-duration $text-field-motion-ease;
+		cursor: text;
+		&:hover {
+			border-color: $text-field-border-color-hover;
+		}
+		input,
+		textarea {
+			background: none;
+			appearance: none;
+			border: none;
+			outline: none;
+			font-size: $text-field-size;
+			line-height: $text-field-line-height;
+			padding: 0;
+			font-size: inherit;
+			flex: 1 1 0;
+			&::placeholder {
+				color: $text-field-placeholder-color;
+			}
+		}
+		textarea {
+			min-height: $text-field-line-height;
+			resize: none;
+		}
+		.TextField__Prefix,
+		.TextField__Suffix {
+			@include unselectable;
+			display: flex;
+			align-items: center;
+			font-size: $text-field-size;
+			line-height: $text-field-line-height;
+			color: $text-field-prefix-suffix-text-color;
+			flex: none;
+			width: auto;
+			&[class*="Prefix"] {
+				margin-right: $text-field-inner-spacing;
+				// svg {
+				// 	margin-right: $text-field-prefix-with-icon-margin;
+				// }
+			}
+			&[class*="Suffix"] {
+				margin-left: $text-field-inner-spacing;
+			}
+		}
+	}
+	&#{&}--hasAction:not(&#{&}--loading) {
+		.TextField__InputWrapper {
+			padding-right: $text-field-padding-with-action;
+			padding-top: $text-field-padding-with-action;
+			padding-bottom: $text-field-padding-with-action;
+		}
 	}
 	&#{&}--focused {
-		border-color: $text-field-border-color-focus;
-		box-shadow: $text-field-shadow-focus;
+		.TextField__InputWrapper {
+			border-color: $text-field-border-color-focus;
+			box-shadow: $text-field-shadow-focus;
+		}
 	}
-	input {
-		background: none;
-		appearance: none;
-		border: none;
-		outline: none;
-		font-size: $text-field-size;
-		line-height: $text-field-line-height;
-		font-size: inherit;
-		&::placeholder {
-			color: $text-field-placeholder-color;
+	&#{&}--error {
+		.TextField__InputWrapper {
+			border-color: $text-field-error-border-color;
+		}
+		&[class*="focused"] {
+			.TextField__InputWrapper {
+				box-shadow: $text-field-error-shadow-focus;
+			}
+		}
+	}
+	&#{&}--disabled {
+		.TextField__InputWrapper {
+			cursor: default;
+			pointer-events: none;
+			background-color: $text-field-disabled-background-color;
+			border-color: $text-field-disabled-border-color;
+			input,
+			textarea {
+				color: $text-field-disabled-text-color;
+				&::placeholder {
+					color: $text-field-disabled-placeholder-color;
+				}
+			}
 		}
 	}
 }

@@ -6,3 +6,7 @@ export * from "./Text";
 export * from "./Badge";
 export * from "./UnstyledButton";
 export * from "./TextField";
+
+export * from "./ErrorLegend";
+export * from "./Label";
+export * from "./LabelledField";
