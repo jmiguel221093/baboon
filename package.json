@@ -3,9 +3,10 @@
 	"version": "0.1.0",
 	"description": "",
 	"scripts": {
+		"build:design-tokens": "node design-tokens/scripts/build-tokens.js",
 		"build:types": "tsc -b",
 		"dev": "yarn storybook",
-		"storybook": "start-storybook -p 6006",
+		"storybook": "yarn build:design-tokens; start-storybook -p 6006",
 		"build-storybook": "build-storybook",
 		"prepare": "husky install",
 		"lint": "eslint \"**/*.{ts,tsx}\"",

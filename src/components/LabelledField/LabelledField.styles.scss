@@ -1,0 +1,21 @@
+$labelled-field-inner-spacing: var(--spacing-2);
+
+$labelled-field-help-text-size: var(--font-size-75);
+$labelled-field-help-text-line-height: var(--font-line-height-3);
+$labelled-field-help-text-color: var(--color-text-subtle);
+$labelled-field-help-text-inner-spacing: var(--spacing-2);
+
+.LabelledField {
+	width: 100%;
+	display: inline-flex;
+	flex-direction: column;
+	gap: $labelled-field-inner-spacing;
+	&__HelpTextWrapper {
+		font-size: $labelled-field-help-text-size;
+		line-height: $labelled-field-help-text-line-height;
+		color: $labelled-field-help-text-color;
+		display: flex;
+		align-items: center;
+		gap: $labelled-field-help-text-inner-spacing;
+	}
+}

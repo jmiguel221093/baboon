@@ -1,0 +1,16 @@
+$label-font-weight: var(--font-weight-semi-bold);
+$label-font-size: var(--font-size-75);
+$label-line-height: var(--font-line-height-3);
+
+.Label {
+	width: 100%;
+	display: inline-flex;
+	align-items: center;
+	label {
+		display: flex;
+		font-weight: $label-font-weight;
+		font-size: $label-font-size;
+		line-height: $label-line-height;
+		flex: 1 1 0;
+	}
+}

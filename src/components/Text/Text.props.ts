@@ -26,7 +26,7 @@ export interface TextProps {
 	/** The type of Text to display */
 	variant?: TextType;
 	/** The color of the Text */
-	color?: ColorType & "subtle-on-dark";
+	color?: ColorType | "subtle-on-dark";
 	/** The font weight of the Text */
 	fontWeight?: FontWeightType;
 	/** HTML id attribute */

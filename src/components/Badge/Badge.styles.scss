@@ -1,0 +1,65 @@
+@import "../../styles/main.scss";
+
+$badge-font-size: var(--font-size-50);
+$badge-font-weight: var(--font-weight-medium);
+$badge-font-line-height: var(--font-line-height-2);
+
+$badge-padding-vertical: var(--spacing-05);
+$badge-padding-horizontal: var(--spacing-2);
+
+$badge-inner-spacing: var(--spacing-1);
+
+$badge-border-radius: var(--border-radius-4);
+
+$badge-background-color: var(--color-background-surface-neutral);
+
+$badge-font-color-w-status: var(--color-text-on-dark);
+
+$badge-icon-size: pxToRem(14px);
+
+$badge-statuses: (primary, success, warning, danger, info);
+
+$badge-status-background-colors: (
+	primary: var(--color-background-surface-primary),
+	success: var(--color-background-surface-success),
+	warning: var(--color-background-surface-warning),
+	danger: var(--color-background-surface-danger),
+	info: var(--color-background-surface-info),
+);
+
+.Badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: $badge-font-size;
+	font-weight: $badge-font-weight;
+	padding: $badge-padding-vertical $badge-padding-horizontal;
+	border-radius: $badge-border-radius;
+	background-color: $badge-background-color;
+	line-height: $badge-font-line-height;
+	gap: $badge-inner-spacing;
+	& > * {
+		display: inline-block;
+		flex: none;
+	}
+	@each $status in $badge-statuses {
+		&--#{$status} {
+			background-color: map-get($badge-status-background-colors, $status);
+			color: $badge-font-color-w-status;
+		}
+	}
+	&__Icon {
+		width: $badge-icon-size;
+		height: $badge-icon-size;
+		svg {
+			width: $badge-icon-size;
+			height: $badge-icon-size;
+		}
+	}
+	&#{&}--clickable {
+		cursor: pointer;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

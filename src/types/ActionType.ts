@@ -1,3 +1,5 @@
+import type { IconType } from "./IconType";
+
 export interface ActionType {
 	id?: string;
 	content?: string;
@@ -6,4 +8,5 @@ export interface ActionType {
 	onTouchStart?: () => void;
 	disabled?: boolean;
 	loading?: boolean;
+	icon?: IconType;
 }
