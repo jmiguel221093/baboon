@@ -1,0 +1,86 @@
+@import "../../styles/main.scss";
+
+$checkbox-border-color: var(--color-border-neutral-subtle);
+$checkbox-border-color-hover: var(--color-border-neutral-subtle-hovered);
+$checkbox-border-color-focus: var(--color-border-neutral-subtle-focus);
+$checkbox-border-color-checked: var(--color-border-neutral-subtle-focus);
+$checkbox-border-color-error: var(--color-border-danger);
+$checkbox-border-color-error-hover: var(--color-border-danger-hovered);
+$checkbox-border-color-disabled: var(--color-border-disabled);
+$checkbox-shadow-focus: var(--shadow-focus);
+$checkbox-checked-icon-color: var(--color-text-on-dark);
+$checkbox-checked-icon-color-disabled: var(--color-text-disabled);
+
+$checkbox-border-radius: var(--border-radius-3);
+
+$checkbox-motion-duration: var(--motion-duration-250);
+$checkbox-motion-ease: var(--motion-ease-in-out);
+
+$checkbox-background-color-checked: var(--color-background-surface-primary);
+$checkbox-background-color-checked-error: var(
+	--color-background-surface-danger
+);
+$checkbox-background-color-disabled: var(--color-background-surface-disabled);
+
+$checkbox-checked-icon-size: pxToRem(12px);
+$checkbox-color-text-disabled: var(--color-text-disabled);
+
+.Checkbox {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border: solid 1px $checkbox-border-color;
+	border-radius: $checkbox-border-radius;
+	transition: background-color $checkbox-motion-duration $checkbox-motion-ease,
+		box-shadow $checkbox-motion-duration $checkbox-motion-ease,
+		color $checkbox-motion-duration $checkbox-motion-ease,
+		border-color $checkbox-motion-duration $checkbox-motion-ease;
+	&__CheckIcon {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform-origin: 50% 50%;
+		pointer-events: none;
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 0;
+		transition: transform $checkbox-motion-duration $checkbox-motion-ease,
+			opacity $checkbox-motion-duration $checkbox-motion-ease;
+		width: $checkbox-checked-icon-size;
+		height: $checkbox-checked-icon-size;
+		.Icon,
+		.Icon svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	&#{&}--checked {
+		background: $checkbox-background-color-checked;
+		border-color: $checkbox-border-color-checked;
+		color: $checkbox-checked-icon-color;
+		&[class*="error"] {
+			background: $checkbox-background-color-checked-error;
+		}
+		.Checkbox__CheckIcon {
+			transform: translate(-50%, -50%) scale(1);
+			opacity: 1;
+		}
+	}
+	&#{&}--error {
+		border-color: $checkbox-border-color-error;
+	}
+	&#{&}--hovered {
+		border-color: $checkbox-border-color-hover;
+		&[class*="error"] {
+			border-color: $checkbox-border-color-error-hover;
+		}
+	}
+	&#{&}--disabled {
+		color: $checkbox-color-text-disabled;
+		border-color: currentColor;
+		background: $checkbox-background-color-disabled;
+	}
+	&__Input {
+		display: none;
+	}
+}
