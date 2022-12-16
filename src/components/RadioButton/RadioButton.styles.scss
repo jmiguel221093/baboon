@@ -1,0 +1,100 @@
+@import "../../styles/main.scss";
+
+$radio-button-border-color: var(--color-border-neutral-subtle);
+$radio-button-border-color-hover: var(--color-border-neutral-subtle-hovered);
+$radio-button-border-color-error: var(--color-border-danger);
+$radio-button-border-color-error-hover: var(--color-border-danger-hovered);
+
+$radio-button-motion-duration: var(--motion-duration-250);
+$radio-button-motion-ease: var(--motion-ease-in-out);
+
+$radio-button-background-color-checked: var(--color-background-surface-primary);
+$checkbox-background-color-checked-error: var(
+	--color-background-surface-danger
+);
+$radio-button-border-color-checked: var(--color-border-neutral-subtle-focus);
+
+$radio-button-indicator-size: pxToRem(8px);
+$radio-button-indicator-color: var(--color-background-surface);
+
+$radio-button-color-text-disabled: var(--color-text-disabled);
+$radio-button-background-color-disabled: var(
+	--color-background-surface-disabled
+);
+
+.RadioButton {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	&__Indicator {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 100%;
+		border: solid 1px $radio-button-border-color;
+		border-radius: 50%;
+		transition: background-color $radio-button-motion-duration
+				$radio-button-motion-ease,
+			box-shadow $radio-button-motion-duration $radio-button-motion-ease,
+			color $radio-button-motion-duration $radio-button-motion-ease,
+			border-color $radio-button-motion-duration $radio-button-motion-ease;
+		&::before {
+			content: "";
+			position: absolute;
+			display: block;
+			width: $radio-button-indicator-size;
+			height: $radio-button-indicator-size;
+			border-radius: 50%;
+			background: $radio-button-indicator-color;
+			transition: transform $radio-button-motion-duration
+					$radio-button-motion-ease,
+				opacity $radio-button-motion-duration $radio-button-motion-ease;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(0);
+			opacity: 0;
+		}
+	}
+	&#{&}--error {
+		.RadioButton__Indicator {
+			border-color: $radio-button-border-color-error;
+		}
+	}
+	&#{&}--hovered {
+		.RadioButton__Indicator {
+			border-color: $radio-button-border-color-hover;
+		}
+		&[class*="error"] {
+			.RadioButton__Indicator {
+				border-color: $radio-button-border-color-error-hover;
+			}
+		}
+	}
+	&__Input {
+		display: none;
+	}
+	&__Input:checked + &__Indicator {
+		background: $radio-button-background-color-checked;
+		border-color: $radio-button-border-color-checked;
+		&::before {
+			transform: translate(-50%, -50%) scale(1);
+			opacity: 1;
+		}
+	}
+	&#{&}--error {
+		.RadioButton__Input:checked + .RadioButton__Indicator {
+			background: $checkbox-background-color-checked-error;
+			border-color: $radio-button-border-color-error;
+		}
+	}
+	&#{&}--disabled {
+		color: $radio-button-color-text-disabled;
+		.RadioButton__Indicator {
+			background: $radio-button-background-color-disabled;
+			border-color: currentColor;
+			&::before {
+				background: currentColor;
+			}
+		}
+	}
+}
