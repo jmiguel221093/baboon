@@ -1,15 +1,14 @@
 import { useRef, useState } from "react";
 import { cssClassNames } from "../../utils";
 import { ChoiceElement } from "../ChoiceElement";
-import { Icon } from "../Icon";
 
-import type { CheckboxProps } from "./Checkbox.props";
+import type { RadioButtonProps } from "./RadioButton.props";
 
-import "./Checkbox.styles.scss";
+import "./RadioButton.styles.scss";
 
-const COMPONENT_NAME = "Checkbox";
+const COMPONENT_NAME = "RadioButton";
 
-const Checkbox = ({
+const RadioButton = ({
 	label,
 	checked,
 	onChange,
@@ -21,35 +20,26 @@ const Checkbox = ({
 	onBlur,
 	onFocus,
 	value,
-	checkIcon,
-	indeterminateIcon,
-}: CheckboxProps) => {
+}: RadioButtonProps) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [isHovered, setIsHovered] = useState(false);
-	const isIndeterminate = checked === "indeterminate";
-	const isChecked = !isIndeterminate && Boolean(checked);
-
 	const className = cssClassNames(
 		COMPONENT_NAME,
 		isHovered && "hovered",
-		(isChecked || isIndeterminate) && "checked",
-		disabled && "disabled",
-		error && "error"
+		error && "error",
+		disabled && "disabled"
 	);
 
 	const handleChange = () => {
-		if (!onChange || !inputRef.current || disabled) {
+		if (!onChange) {
 			return;
 		}
 		onChange(!checked, id || name);
-		inputRef.current.focus();
 	};
 
 	const handleHover = () => {
 		setIsHovered(!isHovered);
 	};
-
-	const checkboxIcon = isIndeterminate ? indeterminateIcon : checkIcon;
 
 	return (
 		<ChoiceElement
@@ -64,25 +54,21 @@ const Checkbox = ({
 			<span className={className}>
 				<input
 					ref={inputRef}
-					id={id || name}
 					className={`${COMPONENT_NAME}__Input`}
+					type="radio"
+					id={id || name}
 					name={name}
-					type="checkbox"
 					value={value}
-					checked={isChecked}
+					checked={checked}
 					disabled={disabled}
+					onChange={handleChange}
 					onBlur={onBlur}
 					onFocus={onFocus}
-					onChange={handleChange}
 				/>
-				{checkboxIcon && (
-					<span className={`${COMPONENT_NAME}__CheckIcon`}>
-						<Icon source={checkboxIcon} />
-					</span>
-				)}
+				<span className={`${COMPONENT_NAME}__Indicator`} />
 			</span>
 		</ChoiceElement>
 	);
 };
 
-export default Checkbox;
+export default RadioButton;

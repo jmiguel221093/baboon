@@ -40,7 +40,12 @@ const ChoiceElement = ({
 	) : null;
 
 	/* eslint-disable no-extra-parens */
-	const errorMarkup = error ? <ErrorLegend {...error} /> : null;
+	const errorMarkup =
+		error && typeof error === "object" ? (
+			<div className={`${COMPONENT_NAME}__Error`}>
+				<ErrorLegend {...error} />
+			</div>
+		) : null;
 	/* eslint-enable no-extra-parens */
 
 	const captionMarkup =

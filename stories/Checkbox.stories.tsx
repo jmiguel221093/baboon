@@ -37,12 +37,43 @@ const IndeterminateIcon = () => (
 	</svg>
 );
 
-export const Basic = Template.bind({});
-Basic.args = {
-	id: "checkbox",
-	label: "Checkbox label",
-	checkIcon: CheckIcon,
-	indeterminateIcon: IndeterminateIcon,
+export const Basic = () => {
+	const [checked, setChecked] = React.useState<string[]>([]);
+	const handleChange = (isChecked, name: string) => {
+		if (checked.includes(name)) {
+			setChecked(checked.filter((item) => item !== name));
+		} else {
+			setChecked([...checked, name]);
+		}
+	};
+	return (
+		<>
+			<Checkbox
+				id="checkbox"
+				label="Checkbox label"
+				name="name"
+				onChange={handleChange}
+				checked={checked.includes("checkbox")}
+				checkIcon={CheckIcon}
+			/>
+			<Checkbox
+				id="checkbox-2"
+				label="Checkbox label"
+				name="name"
+				onChange={handleChange}
+				checked={checked.includes("checkbox-2")}
+				checkIcon={CheckIcon}
+			/>
+			<Checkbox
+				id="checkbox-3"
+				label="Checkbox label"
+				name="name"
+				onChange={handleChange}
+				checked={checked.includes("checkbox-3")}
+				checkIcon={CheckIcon}
+			/>
+		</>
+	);
 };
 
 export const Checked = Template.bind({});
