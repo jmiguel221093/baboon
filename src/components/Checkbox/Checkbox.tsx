@@ -37,11 +37,11 @@ const Checkbox = ({
 		error && "error"
 	);
 
-	const handleClick = () => {
+	const handleChange = () => {
 		if (!onChange || !inputRef.current || disabled) {
 			return;
 		}
-		onChange(inputRef.current.checked, id);
+		onChange(!checked, id || name);
 		inputRef.current.focus();
 	};
 
@@ -53,7 +53,7 @@ const Checkbox = ({
 
 	return (
 		<ChoiceElement
-			id={id}
+			id={id || name}
 			label={label}
 			error={error}
 			helpText={helpText}
@@ -64,27 +64,25 @@ const Checkbox = ({
 			<span className={className}>
 				<input
 					ref={inputRef}
-					id={id}
+					id={id || name}
 					className={`${COMPONENT_NAME}__Input`}
 					name={name}
 					type="checkbox"
 					value={value}
 					checked={isChecked}
 					disabled={disabled}
-					onClick={handleClick}
-					onFocus={onFocus}
 					onBlur={onBlur}
-					onChange={noOperation}
+					onFocus={onFocus}
+					onChange={handleChange}
 				/>
-				<span className={`${COMPONENT_NAME}__CheckIcon`}>
-					<Icon source={checkboxIcon} />
-				</span>
+				{checkboxIcon && (
+					<span className={`${COMPONENT_NAME}__CheckIcon`}>
+						<Icon source={checkboxIcon} />
+					</span>
+				)}
 			</span>
 		</ChoiceElement>
 	);
 };
-
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-function noOperation() {}
 
 export default Checkbox;

@@ -10,13 +10,13 @@ export interface RadioButtonProps {
 	/** Disables de field */
 	disabled?: boolean;
 	/** Unique identifier for the field */
-	id: string;
+	id?: string;
 	/** Name for the input */
-	name?: string;
+	name: string;
 	/** The value of the field */
 	value?: string;
 	/** The error message to display */
-	error?: ErrorLegendProps;
+	error?: ErrorLegendProps | boolean;
 	/** Callback when radio button changes */
 	onChange?: (checked: boolean, id: string) => void;
 	/** Callback when radio button is focused */

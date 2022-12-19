@@ -30,13 +30,11 @@ const RadioButton = ({
 		disabled && "disabled"
 	);
 
-	const handleChange = ({
-		currentTarget,
-	}: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = () => {
 		if (!onChange) {
 			return;
 		}
-		onChange(currentTarget.checked, id);
+		onChange(!checked, id || name);
 	};
 
 	const handleHover = () => {
@@ -45,7 +43,7 @@ const RadioButton = ({
 
 	return (
 		<ChoiceElement
-			id={id}
+			id={id || name}
 			label={label}
 			error={error}
 			helpText={helpText}
@@ -58,7 +56,7 @@ const RadioButton = ({
 					ref={inputRef}
 					className={`${COMPONENT_NAME}__Input`}
 					type="radio"
-					id={id}
+					id={id || name}
 					name={name}
 					value={value}
 					checked={checked}
