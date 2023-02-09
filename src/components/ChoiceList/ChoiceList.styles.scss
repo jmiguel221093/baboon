@@ -1,0 +1,24 @@
+@import "../../styles/main.scss";
+
+$choice-list-inner-spacing: var(--spacing-3);
+$choice-list-error-margin-top: var(--spacing-1);
+$choice-list-content-spacing: calc(pxToRem(18px) + var(--spacing-3));
+
+.ChoiceList {
+	border: none;
+	&__Title {
+		margin-bottom: $choice-list-inner-spacing;
+	}
+	&__Choices {
+		display: flex;
+		flex-direction: column;
+		gap: $choice-list-inner-spacing;
+	}
+	&__ChoiceContent {
+		padding-left: $choice-list-content-spacing;
+		padding-top: $choice-list-inner-spacing;
+	}
+	&__ChoiceError {
+		margin-top: $choice-list-error-margin-top;
+	}
+}

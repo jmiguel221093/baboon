@@ -54,6 +54,12 @@ $checkbox-color-text-disabled: var(--color-text-disabled);
 			height: 100%;
 		}
 	}
+	&#{&}--hovered {
+		border-color: $checkbox-border-color-hover;
+		&[class*="error"] {
+			border-color: $checkbox-border-color-error-hover;
+		}
+	}
 	&#{&}--checked {
 		background: $checkbox-background-color-checked;
 		border-color: $checkbox-border-color-checked;
@@ -68,12 +74,6 @@ $checkbox-color-text-disabled: var(--color-text-disabled);
 	}
 	&#{&}--error {
 		border-color: $checkbox-border-color-error;
-	}
-	&#{&}--hovered {
-		border-color: $checkbox-border-color-hover;
-		&[class*="error"] {
-			border-color: $checkbox-border-color-error-hover;
-		}
 	}
 	&#{&}--disabled {
 		color: $checkbox-color-text-disabled;

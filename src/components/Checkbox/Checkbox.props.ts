@@ -11,17 +11,17 @@ export interface CheckboxProps {
 	/** Disables de field */
 	disabled?: boolean;
 	/** Unique identifier for the field */
-	id: string;
+	id?: string;
 	/** Name for the input */
-	name?: string;
+	name: string;
 	/** The value of the field */
 	value?: string;
 	/** The error message to display */
 	error?: ErrorLegendProps;
 	/** The icon to display when the field is checked */
-	checkIcon: IconType;
+	checkIcon?: IconType;
 	/** The icon to display when the field is in indeterminate status */
-	indeterminateIcon: IconType;
+	indeterminateIcon?: IconType;
 	/** Callback when checkbox changes */
 	onChange?: (checked: boolean, id: string) => void;
 	/** Callback when checkbox is focused */

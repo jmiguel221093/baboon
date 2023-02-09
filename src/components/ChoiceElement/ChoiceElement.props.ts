@@ -8,7 +8,7 @@ export interface ChoiceElementProps {
 	/** Sets the Choice as disabled */
 	disabled?: boolean;
 	/** The error message to display */
-	error?: ErrorLegendProps;
+	error?: ErrorLegendProps | boolean;
 	/** Content to display inside the choice */
 	children?: React.ReactNode;
 	/** Hint to help user with the field */
@@ -17,4 +17,6 @@ export interface ChoiceElementProps {
 	onMouseEnter?: () => void;
 	/** Callback when mouse is leaving */
 	onMouseLeave?: () => void;
+	/** Callback when the choice is selected */
+	onClick?: () => void;
 }
