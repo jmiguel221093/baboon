@@ -1,0 +1,89 @@
+@import "../../styles/main.scss";
+
+$stack-spacings: (
+	"tiny": var(--spacing-1),
+	"small": var(--spacing-2),
+	"medium": var(--spacing-4),
+	"large": var(--spacing-5),
+	"extra-large": var(--spacing-8),
+	"huge": var(--spacing-10),
+);
+
+$stack-alignments: (
+	"start": flex-start,
+	"center": center,
+	"end": flex-end,
+	"baseline": baseline,
+	"fill": stretch,
+);
+
+$stack-distributions: (
+	"start": flex-start,
+	"center": center,
+	"end": flex-end,
+);
+
+.Stack {
+	display: flex;
+	&--wrap {
+		flex-wrap: wrap;
+	}
+	&__Item {
+		max-width: 100%;
+	}
+
+	&#{&}--type-detached#{&}--spacing {
+		@each $spacing, $value in $stack-spacings {
+			&-#{$spacing} {
+				> .Stack__Item:not(:last-child) {
+					margin-right: $value;
+				}
+			}
+		}
+	}
+	&#{&}--type-joined {
+		& > .Stack__Item:not(:last-child) {
+			> * {
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+		}
+		& > .Stack__Item:not(:first-child) {
+			> * {
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+			margin-left: -1px;
+		}
+		& > .Stack__Item {
+			&:hover {
+				z-index: 1;
+			}
+		}
+	}
+	&#{&}--alignment {
+		@each $alignment, $value in $stack-alignments {
+			&-#{$alignment} {
+				align-items: $value;
+			}
+		}
+	}
+	&#{&}--distribution {
+		@each $distribution, $value in $stack-distributions {
+			&-#{$distribution} {
+				justify-content: $value;
+			}
+		}
+		&-fill {
+			& > .Stack__Item {
+				flex: 1 1 auto;
+			}
+		}
+		&-fillEvenly {
+			justify-content: space-evenly;
+			& > .Stack__Item {
+				flex: none;
+			}
+		}
+	}
+}
