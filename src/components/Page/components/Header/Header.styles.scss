@@ -1,0 +1,41 @@
+@import "../../../../styles/main.scss";
+
+$page-header-title-wrapper-inner-spacng: var(--spacing-4);
+$page-breadcrumb-margin-bottom: var(--spacing-4);
+$page-header-metadata-margin-top: var(--spacing-4);
+$page-header-metadata-content-margin-right: var(--spacing-2);
+$page-header-thumbnail-margin-right: var(--spacing-6);
+
+.Page__Header {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	&__BreadcrumbWrapper {
+		flex: none;
+		width: 100%;
+		margin-bottom: $page-breadcrumb-margin-bottom;
+	}
+	&__ThumbnailWrapper {
+		margin-right: $page-header-thumbnail-margin-right;
+	}
+	&__ContentWrapper {
+		flex: 1 1 0;
+	}
+	&__ActionsTitleWrapper {
+		display: flex;
+		align-items: center;
+	}
+	&__TitleWrapper {
+		flex: 1 1 0;
+		padding-right: $page-header-title-wrapper-inner-spacng;
+	}
+	&__MetadataWrapper {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin-top: $page-header-metadata-margin-top;
+		& > * {
+			margin-right: $page-header-metadata-content-margin-right;
+		}
+	}
+}

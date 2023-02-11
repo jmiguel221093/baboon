@@ -9,4 +9,4 @@ export * from "./TextField";
 
 export * from "./ErrorLegend";
 export * from "./Label";
-export * from "./Checkbox";export * from "./ChoiceElement";export * from "./ChoiceList";export * from "./EmptyState";export * from "./LabelledField";export * from "./RadioButton";export * from "./Stack";
+export * from "./Checkbox";export * from "./ChoiceElement";export * from "./ChoiceList";export * from "./EmptyState";export * from "./LabelledField";export * from "./Page";export * from "./RadioButton";export * from "./Stack";export * from "./Thumbnail";
