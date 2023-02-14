@@ -1,0 +1,21 @@
+@import "../../styles/main.scss";
+
+$popover-background-color: var(--color-background-surface);
+$popover-shadow: var(--shadow-container);
+$popover-layer: var(--z-index-popover);
+$popover-spacing: var(--spacing-2);
+$popover-border-radius: var(--border-radius-7);
+$popover-margin: var(--spacing-3);
+
+.Popover {
+	position: absolute;
+	padding: $popover-spacing;
+	background-color: $popover-background-color;
+	box-shadow: $popover-shadow;
+	border-radius: $popover-border-radius;
+	margin: $popover-margin 0;
+	z-index: $popover-layer;
+	&#{&}--fixed {
+		position: fixed;
+	}
+}
