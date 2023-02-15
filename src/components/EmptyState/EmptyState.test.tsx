@@ -44,20 +44,20 @@ describe("EmptyState component", () => {
 		expect(wrapper.find(`.EmptyState__Content`).text()).toEqual(
 			"Try adjusting your search criteria"
 		);
-		expect(wrapper.find(Button).at(0).text()).toEqual("Create Item");
-		expect(wrapper.find(Button).at(1).text()).toEqual("Clear search");
+		expect(wrapper.find(Button).at(1).text()).toEqual("Create Item");
+		expect(wrapper.find(Button).at(0).text()).toEqual("Clear search");
 	});
 
 	it("calls the primary action onPress function when primary button is clicked", () => {
 		const wrapper = shallow(<EmptyState {...props} />);
-		wrapper.find(Button).at(0).simulate("click");
+		wrapper.find(Button).at(1).simulate("click");
 
 		expect(props.primaryAction?.onPress).toHaveBeenCalled();
 	});
 
 	it("calls the secondary action onPress function when secondary button is clicked", () => {
 		const wrapper = shallow(<EmptyState {...props} />);
-		wrapper.find(Button).at(1).simulate("click");
+		wrapper.find(Button).at(0).simulate("click");
 
 		expect(props.secondaryAction?.onPress).toHaveBeenCalled();
 	});

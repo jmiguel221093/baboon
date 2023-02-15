@@ -66,8 +66,8 @@ const EmptyState = ({
 	const actionsMarkup = primaryActionMarkup ? (
 		<div className={`${COMPONENT_NAME}__Actions`}>
 			<Stack alignment="center" distribution="center" spacing="medium">
-				{primaryActionMarkup}
 				{secondaryActionMarkup}
+				{primaryActionMarkup}
 			</Stack>
 			{tertiaryActionMarkup}
 		</div>
