@@ -46,28 +46,29 @@ Basic.args = {
 	selected: [],
 	name: "choice",
 };
+
 export const FullExample = () => {
 	const [selected, setSelected] = React.useState<string[]>([]);
 	return (
 		<ChoiceList
 			choices={[
 				{
-					value: "1",
+					value: "check1",
 					label: "Choice 1",
 				},
 				{
-					value: "2",
+					value: "check2",
 					label: "Choice 2",
 				},
 				{
-					value: "3",
+					value: "check3",
 					label: "Choice 3",
 					disabled: true,
 				},
 			]}
 			selected={selected}
-			name="choice"
-			onChange={(selected) => setSelected(selected)}
+			name="choice2"
+			onChange={setSelected}
 			multiple
 			checkboxCheckIcon={CheckIcon}
 		/>
@@ -78,34 +79,34 @@ export const WithTitle = Template.bind({});
 WithTitle.args = {
 	choices: [
 		{
-			value: "1",
+			value: "c1",
 			label: "Choice 1",
 		},
 		{
-			value: "2",
+			value: "c2",
 			label: "Choice 2",
 		},
 	],
 	selected: [],
 	title: "Select a choice",
-	name: "choice",
+	name: "choice2",
 };
 
 export const WithError = Template.bind({});
 WithError.args = {
 	choices: [
 		{
-			value: "1",
+			value: "ca1",
 			label: "Choice 1",
 		},
 		{
-			value: "2",
+			value: "ca2",
 			label: "Choice 2",
 		},
 	],
 	selected: [],
 	title: "Select a choice",
-	name: "choice",
+	name: "choice3",
 	error: {
 		message: "This is an error",
 		icon: AlertIcon,
@@ -116,17 +117,17 @@ export const MultipleChoice = Template.bind({});
 MultipleChoice.args = {
 	choices: [
 		{
-			value: "1",
+			value: "cb1",
 			label: "Choice 1",
 		},
 		{
-			value: "2",
+			value: "cb2",
 			label: "Choice 2",
 		},
 	],
 	selected: [],
 	title: "Select a choice",
-	name: "choice",
+	name: "choice4",
 	multiple: true,
 };
 
@@ -134,18 +135,18 @@ export const WithChildrenContent = Template.bind({});
 WithChildrenContent.args = {
 	choices: [
 		{
-			value: "1",
+			value: "cc1",
 			label: "Choice 1",
 		},
 		{
-			value: "2",
+			value: "cc2",
 			label: "Choice 2",
 			renderContent: () => <TextField />,
 		},
 	],
 	selected: [],
 	title: "Select a choice",
-	name: "choice",
+	name: "choice5",
 	multiple: true,
 };
 
@@ -153,11 +154,11 @@ export const WithChildrenContentDynamic = Template.bind({});
 WithChildrenContentDynamic.args = {
 	choices: [
 		{
-			value: "1",
+			value: "cd1",
 			label: "Choice 1",
 		},
 		{
-			value: "2",
+			value: "cd2",
 			label: "Choice 2",
 			renderContent: (isSelected: boolean) => {
 				return isSelected ? <TextField /> : null;
@@ -166,5 +167,5 @@ WithChildrenContentDynamic.args = {
 	],
 	selected: ["2"],
 	title: "Select a choice",
-	name: "choice",
+	name: "choice6",
 };

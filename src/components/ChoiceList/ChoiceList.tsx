@@ -22,6 +22,7 @@ const ChoiceList = ({
 	checkboxCheckIcon,
 }: ChoiceListProps) => {
 	const className = cssClassNames(COMPONENT_NAME);
+	const ChoiceComponent = multiple ? Checkbox : RadioButton;
 
 	if (!name) {
 		console.error("ChoiceList: name prop is required");
@@ -33,6 +34,10 @@ const ChoiceList = ({
 		</legend>
 	) : null;
 
+	const handleChange = (choice: Choice, checked: boolean) => {
+		onChange(getSelectedValues(choice, checked, selected, multiple));
+	};
+
 	const choicesMarkup = choices.map((choice) => {
 		const {
 			value,
@@ -41,11 +46,6 @@ const ChoiceList = ({
 			helperText,
 			id,
 		} = choice;
-
-		const ChoiceComponent = multiple ? Checkbox : RadioButton;
-		const handleChange = (choice: Choice, checked: boolean) => {
-			onChange(getSelectedValues(choice, checked, selected, multiple));
-		};
 
 		const isSelected = isChoiceSelected(choice, selected);
 
