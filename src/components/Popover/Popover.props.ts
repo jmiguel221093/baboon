@@ -16,4 +16,6 @@ export interface PopoverProps {
 	align?: "left" | "right" | "center";
 	/** Sets the popover position as fixed */
 	fixed?: boolean;
+	/** Whether the section should have a border or not */
+	borderLess?: boolean;
 }

@@ -1,0 +1,25 @@
+$popover-section-padding: var(--spacing-2);
+$popover-section-border: var(--color-border-disabled);
+$popover-title-margin: var(--spacing-3);
+
+.Popover {
+	&__Section {
+		padding: $popover-section-padding;
+		&:not(:first-child) {
+			border-top: 1px solid $popover-section-border;
+			margin-top: $popover-section-padding;
+			padding-top: calc(#{$popover-section-padding} * 2);
+		}
+		&__TitleWrapper {
+			margin-bottom: $popover-title-margin;
+		}
+	}
+	&#{&}--borderLess {
+		& > * {
+			&:not(:first-child) {
+				border: none;
+				padding-top: inherit;
+			}
+		}
+	}
+}
