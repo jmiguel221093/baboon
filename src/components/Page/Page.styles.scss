@@ -1,0 +1,15 @@
+@import "../../styles/main.scss";
+
+$page-body-padding: var(--spacing-8);
+$page-body-divider-border: var(--color-border-disabled);
+
+.Page {
+	padding: 0 $page-body-padding;
+	&__Body {
+		padding: $page-body-padding 0;
+		&--divider {
+			margin-top: $page-body-padding;
+			border-top: 1px solid $page-body-divider-border;
+		}
+	}
+}

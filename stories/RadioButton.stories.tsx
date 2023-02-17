@@ -25,10 +25,29 @@ const AlertIcon = () => (
 
 const Template = (args: RadioButtonProps) => <RadioButton {...args} />;
 
-export const Basic = Template.bind({});
-Basic.args = {
-	id: "radio-button",
-	label: "Radio Button",
+export const Basic = () => {
+	const [checked, setChecked] = React.useState("radio-button");
+	const handleChange = (value, name) => {
+		setChecked(name);
+	};
+	return (
+		<>
+			<RadioButton
+				id="radio-button"
+				label="Radio Button"
+				name="name"
+				onChange={handleChange}
+				checked={checked === "radio-button"}
+			/>
+			<RadioButton
+				id="radio-button-2"
+				label="Radio Button"
+				name="name"
+				onChange={handleChange}
+				checked={checked === "radio-button-2"}
+			/>
+		</>
+	);
 };
 
 export const Checked = Template.bind({});

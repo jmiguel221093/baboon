@@ -1,0 +1,35 @@
+@import "../../styles/main.scss";
+
+$popover-background-color: var(--color-background-surface);
+$popover-shadow: var(--shadow-container);
+$popover-layer: var(--z-index-popover);
+$popover-spacing: var(--spacing-2);
+$popover-border-radius: var(--border-radius-7);
+$popover-margin: var(--spacing-3);
+$popover-translate-y: pxToRem(12px);
+
+$popover-motion-duration: var(--motion-duration-250);
+$popover-motion-ease: var(--motion-ease-in-out);
+
+.Popover {
+	position: absolute;
+	padding: $popover-margin 0;
+	opacity: 0;
+	transition: opacity $popover-motion-duration $popover-motion-ease,
+		transform $popover-motion-duration $popover-motion-ease;
+	transform: translateY(-$popover-translate-y);
+	z-index: $popover-layer;
+	&__Body {
+		padding: $popover-spacing;
+		background-color: $popover-background-color;
+		box-shadow: $popover-shadow;
+		border-radius: $popover-border-radius;
+	}
+	&#{&}--fixed {
+		position: fixed;
+	}
+	&#{&}--open {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

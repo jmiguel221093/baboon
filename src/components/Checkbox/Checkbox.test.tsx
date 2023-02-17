@@ -52,7 +52,7 @@ describe("Checkbox", () => {
 	});
 
 	it("should call the onChange prop when the checkbox is clicked", () => {
-		wrapper.find('input[type="checkbox"]').simulate("click");
+		wrapper.find('input[type="checkbox"]').simulate("change");
 		expect(mockOnChange).toHaveBeenCalled();
 	});
 

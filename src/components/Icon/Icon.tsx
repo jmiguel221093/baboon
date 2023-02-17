@@ -48,7 +48,7 @@ const Icon = ({
 		color && `color-${color}`,
 		backdrop && "backdrop",
 		size && `size-${size}`,
-		filled && "filled",
+		!outlined && filled && "filled",
 		outlined && "outlined",
 		sourceType && `source-${sourceType}`
 	);
