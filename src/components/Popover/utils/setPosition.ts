@@ -19,11 +19,6 @@ const setPosition = (
 		const windowOffset = !fixed ? window.scrollY || window.pageYOffset : 0;
 		popoverStyleObj.top = triggerRect.bottom + windowOffset;
 		popoverStyleObj.left = getAlignment(popoverWidth, triggerRect, align);
-		// if (fullWidth) {
-		// 	const triggerWidth =
-		// 		trigger.current.children[0].getBoundingClientRect().width;
-		// 	popoverStyleObj.width = triggerWidth;
-		// }
 		if (window.innerHeight < triggerRect.bottom + popoverHeight) {
 			popoverStyleObj.top =
 				triggerRect.top - popoverHeight + windowOffset;

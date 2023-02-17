@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Popover>;
 
 export const Basic = () => {
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = React.useState(true);
 	const togglePopover = () => setOpen(!open);
 	const trigger = <Button onClick={togglePopover}>Click me</Button>;
 	return (

@@ -1,0 +1,27 @@
+@import "../../styles/main.scss";
+
+$menu-list-ul-li-margin: var(--spacing-1);
+$menu-list-section-border-top-color: var(--color-border-disabled);
+$menu-list-section-spacing: var(--spacing-1);
+$menu-list-section-title-padding: var(--spacing-2);
+
+.MenuList {
+	&__Section {
+		&__Title {
+			padding: $menu-list-section-title-padding;
+			&:not(:last-child) {
+				margin-bottom: $menu-list-section-spacing;
+			}
+		}
+		&:not(:first-child) {
+			border-top: 1px solid $menu-list-section-border-top-color;
+			margin-top: $menu-list-section-spacing;
+			padding-top: $menu-list-section-spacing;
+		}
+		li {
+			&:not(:first-child) {
+				margin-top: $menu-list-ul-li-margin;
+			}
+		}
+	}
+}
