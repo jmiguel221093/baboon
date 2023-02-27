@@ -47,6 +47,7 @@ const Alert = ({
 	const secondaryActionMarkup = secondaryAction ? (
 		<div className={`${COMPONENT_NAME}__SecondaryAction`}>
 			<UnstyledButton
+				{...secondaryAction}
 				onClick={secondaryAction.onPress}
 				className="Button"
 			>
@@ -57,7 +58,7 @@ const Alert = ({
 
 	const primaryActionButton =
 		status !== "primary" ? (
-			<Button onClick={primaryAction?.onPress} primary>
+			<Button {...primaryAction} onClick={primaryAction?.onPress} primary>
 				{primaryAction?.content}
 			</Button>
 		) : (

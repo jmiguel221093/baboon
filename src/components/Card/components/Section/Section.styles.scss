@@ -1,0 +1,24 @@
+$card-section-border: var(--color-border-disabled);
+$card-section-padding: var(--spacing-8);
+$card-section-header-spacing: var(--spacing-1);
+
+.Card__Section {
+	&:not(:last-child) {
+		border-bottom: 1px solid $card-section-border;
+		padding-bottom: $card-section-padding;
+	}
+	&:not(:first-child) {
+		padding-top: $card-section-padding;
+	}
+	&__Header {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		&:not(:last-child) {
+			margin-bottom: $card-section-header-spacing;
+		}
+	}
+	&__TitleWrapper {
+		flex: 1 1 0;
+	}
+}

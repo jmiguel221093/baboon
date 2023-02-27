@@ -33,12 +33,7 @@ const Header = ({
 		) : null;
 
 	const primaryActionMarkup = primaryAction ? (
-		<Button
-			primary
-			onClick={primaryAction.onPress}
-			disabled={primaryAction.disabled}
-			loading={primaryAction.loading}
-		>
+		<Button {...primaryAction} onClick={primaryAction.onPress} primary>
 			{primaryAction.content}
 		</Button>
 	) : null;

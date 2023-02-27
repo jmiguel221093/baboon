@@ -8,5 +8,6 @@ export interface ActionType {
 	onTouchStart?: () => void;
 	disabled?: boolean;
 	loading?: boolean;
+	danger?: boolean;
 	icon?: IconType;
 }
