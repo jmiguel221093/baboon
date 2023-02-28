@@ -46,19 +46,19 @@ const EmptyState = ({
 		) : null;
 
 	const primaryActionMarkup = primaryAction ? (
-		<Button primary onClick={primaryAction.onPress}>
+		<Button {...primaryAction} onClick={primaryAction.onPress} primary>
 			{primaryAction.content}
 		</Button>
 	) : null;
 
 	const secondaryActionMarkup = secondaryAction ? (
-		<Button onClick={secondaryAction.onPress} outline>
+		<Button {...secondaryAction} onClick={secondaryAction.onPress} outline>
 			{secondaryAction.content}
 		</Button>
 	) : null;
 
 	const tertiaryActionMarkup = tertiaryAction ? (
-		<Button link onClick={tertiaryAction.onPress}>
+		<Button {...tertiaryAction} onClick={tertiaryAction.onPress} link>
 			{tertiaryAction.content}
 		</Button>
 	) : null;
