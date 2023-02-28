@@ -26,6 +26,7 @@ const Card = ({
 		actionsGroup,
 		mediaImage,
 		headerInMedia,
+		icon,
 	} = rest;
 	const headerMarkup = title ? (
 		<Header
@@ -35,6 +36,7 @@ const Card = ({
 			mediaImage={mediaImage}
 			headerInMedia={headerInMedia}
 			metadata={metadata}
+			icon={icon}
 		/>
 	) : null;
 

@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
-import { cssClassNames } from "../../../../utils";
+import { cssClassNames, isValidIcon } from "../../../../utils";
 import { Button } from "../../../Button";
+import { Icon } from "../../../Icon";
 import { MenuList } from "../../../MenuList";
 import { Popover } from "../../../Popover";
 import { Stack } from "../../../Stack";
@@ -18,27 +19,27 @@ const Header = ({
 	actionsGroup,
 	mediaImage,
 	headerInMedia,
+	icon,
 }: HeaderProps) => {
 	const [isActionsGroupOpen, setIsActionsGroupOpen] = useState(false);
 	const isHeaderInMedia = mediaImage && headerInMedia;
 
-	const className = cssClassNames(COMPONENT_NAME);
+	/* eslint-disable no-extra-parens */
+	const iconSource = isValidIcon(icon) ? (
+		<Icon source={icon} backdrop color="neutral" size="extra-large" />
+	) : (
+		icon
+	);
+	/* eslint-enable no-extra-parens */
+
+	const className = cssClassNames(
+		COMPONENT_NAME,
+		isHeaderInMedia && "header-in-media"
+	);
 
 	const triggerActionsGroupPopover = useCallback(() => {
 		setIsActionsGroupOpen((open) => !open);
 	}, [actionsGroup]);
-
-	const titleMarkup =
-		title || metadata ? (
-			<div className={`${COMPONENT_NAME}__TitleWrapper`}>
-				<Text variant="heading">{title}</Text>
-				{metadata ? (
-					<div className={`${COMPONENT_NAME}__MetadataWrapper`}>
-						{metadata}
-					</div>
-				) : null}
-			</div>
-		) : null;
 
 	const actionsGroupTrigger = actionsGroup ? (
 		<Button
@@ -76,11 +77,32 @@ const Header = ({
 			</Stack>
 		) : null;
 
-	const titleActionsMarkup =
-		titleMarkup || actionsMarkup ? (
-			<div className={`${COMPONENT_NAME}__TitleActionsWrapper`}>
-				{titleMarkup}
+	const iconMarkup = icon ? (
+		<div className={`${COMPONENT_NAME}__IconWrapper`}>
+			{iconSource as React.ReactNode}
+		</div>
+	) : null;
+
+	const titleMarkup =
+		title || actionsMarkup ? (
+			<div className={`${COMPONENT_NAME}__TitleWrapper`}>
+				<Text variant="heading">{title}</Text>
 				{actionsMarkup}
+			</div>
+		) : null;
+
+	const metadataMarkup = metadata ? (
+		<div className={`${COMPONENT_NAME}__MetadataWrapper`}>{metadata}</div>
+	) : null;
+
+	const titleActionsMarkup =
+		titleMarkup || metadata ? (
+			<div className={`${COMPONENT_NAME}__TitleActionsWrapper`}>
+				{iconMarkup}
+				<div className={`${COMPONENT_NAME}__HeaderMainInfoWrapper`}>
+					{titleMarkup}
+					{metadataMarkup}
+				</div>
 			</div>
 		) : null;
 

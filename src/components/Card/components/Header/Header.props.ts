@@ -22,4 +22,5 @@ export interface HeaderProps {
 	mainActions?: BasicIconActionType[];
 	mediaImage?: CardMediaImageType;
 	headerInMedia?: boolean;
+	icon?: ReactNode | IconType;
 }
