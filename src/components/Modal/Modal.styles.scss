@@ -1,0 +1,49 @@
+$modal-body-wrapper-spacing: var(--spacing-6);
+
+$modal-motion-duration: var(--motion-duration-250);
+$modal-motion-ease: var(--motion-ease-in-out);
+
+$modal-body-wrapper-after-background-gradient-start: var(
+	--color-background-modal-gradient-start
+);
+$modal-body-wrapper-after-background-gradient-end: var(
+	--color-background-modal-gradient-end
+);
+$modal-body-wrapper-after-background: var(--color-background-surface);
+
+$modal-container-padding-large: var(--spacing-24);
+$modal-layer: var(--z-index-modal-backdrop);
+
+$modal-motion-duration: var(--motion-duration-250);
+$modal-motion-ease: var(--motion-ease-in-out);
+
+.Modal {
+	&__MainContainer {
+		overflow: auto;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: $modal-layer;
+	}
+	&__BodyWrapper {
+		position: relative;
+		overflow: auto;
+		&:not(:first-child) {
+			margin-top: $modal-body-wrapper-spacing;
+		}
+	}
+	.Modal {
+		&__BodyWrapper {
+			&:not([class*="end"]) {
+				& + * {
+					box-shadow: 0 -10px 30px 50px rgba(255, 255, 255, 1);
+					z-index: 1;
+					transition: box-shadow $modal-motion-duration
+						$modal-motion-ease;
+				}
+			}
+		}
+	}
+}
