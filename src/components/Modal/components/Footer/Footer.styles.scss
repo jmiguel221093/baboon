@@ -1,0 +1,41 @@
+@import "../../../../styles/main.scss";
+
+$modal-footer-inner-spacing: var(--spacing-4);
+$modal-footer-buttons-vertical-margin: var(--spacing-2);
+$modal-footer-margin-top: var(--spacing-8);
+
+.Modal__Footer {
+	flex: none;
+	height: auto;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	&:not(:first-child) {
+		margin-top: $modal-footer-margin-top;
+	}
+	&__ContentWrapper {
+		flex: 1 1 0;
+		&:not(:last-child) {
+			margin-right: $modal-footer-inner-spacing;
+		}
+	}
+	&__ActionsWrapper {
+		justify-content: space-between;
+		flex-wrap: wrap;
+		display: flex;
+		gap: $modal-footer-inner-spacing;
+	}
+	&--MultipleActions {
+		.Modal__Footer {
+			&__ActionsWrapper {
+				width: 100%;
+				margin-top: $modal-footer-inner-spacing;
+				@include md {
+					margin-top: 0;
+					width: auto;
+					flex: none;
+				}
+			}
+		}
+	}
+}

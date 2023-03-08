@@ -1,0 +1,11 @@
+.Modal__Header {
+	flex: none;
+	height: auto;
+	&__TitleActionsWrapper {
+		display: flex;
+		align-items: flex-start;
+		&__HeaderMainInfoWrapper {
+			flex: 1 1 0;
+		}
+	}
+}

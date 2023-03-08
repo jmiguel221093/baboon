@@ -1,3 +1,5 @@
+@import "../../../../styles/main.scss";
+
 $card-header-title-wrapper-margin: var(--spacing-1);
 $card-header-media-image-wrapper-negative-spacing: var(--spacing-6);
 $card-header-media-image-wrapper-spacing: var(--spacing-8);
@@ -7,6 +9,7 @@ $card-header-media-image-wrapper-action-shadow-focus: 0 0 0 4px
 	rgba(255, 255, 255, 0.5);
 $card-header-media-image-wrapper-with-header-spacing: var(--spacing-8);
 $card-header-media-image-wrapper-main-content-spacing: var(--spacing-6);
+$card-header-title-wrapper-text-line-height: pxToRem(34px);
 
 .Card__Header {
 	&__TitleActionsWrapper {
@@ -22,6 +25,7 @@ $card-header-media-image-wrapper-main-content-spacing: var(--spacing-6);
 				align-items: center;
 				& > *:first-child {
 					flex: 1 1 0;
+					line-height: $card-header-title-wrapper-text-line-height;
 				}
 			}
 			&__MetadataWrapper {
