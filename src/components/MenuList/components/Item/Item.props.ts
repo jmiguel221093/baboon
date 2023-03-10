@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { IconType } from "../../../../types";
 
-export interface MenuItemProps {
+export interface MenuListItemProps {
 	/** Text content of the action */
 	content?: string;
 	/** Hint to help user about the action */

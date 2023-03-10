@@ -37,3 +37,10 @@
 
 	@return $result + rem;
 }
+
+@function hex-to-rgb($color) {
+	$r: str-slice($color, 2, 3);
+	$g: str-slice($color, 4, 5);
+	$b: str-slice($color, 6, 7);
+	@return unquote("rgb(#{$r}, #{$g}, #{$b})");
+}

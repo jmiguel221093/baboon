@@ -1,7 +1,7 @@
 import React from "react";
 import type { ComponentMeta } from "@storybook/react";
 
-import { RadioButton } from "../src/components";
+import { RadioButton, Stack } from "../src/components";
 import type { RadioButtonProps } from "../src/components";
 
 export default {
@@ -31,22 +31,36 @@ export const Basic = () => {
 		setChecked(name);
 	};
 	return (
-		<>
-			<RadioButton
-				id="radio-button"
-				label="Radio Button"
-				name="name"
-				onChange={handleChange}
-				checked={checked === "radio-button"}
-			/>
-			<RadioButton
-				id="radio-button-2"
-				label="Radio Button"
-				name="name"
-				onChange={handleChange}
-				checked={checked === "radio-button-2"}
-			/>
-		</>
+		<div>
+			<Stack
+				spacing="extra-large"
+				wrap
+				alignment="fill"
+				distribution="start"
+			>
+				<RadioButton
+					id="radio-button"
+					label="Radio Button"
+					name="name"
+					onChange={handleChange}
+					checked={checked === "radio-button"}
+				/>
+				<RadioButton
+					id="radio-button-2"
+					label="Radio Button"
+					name="name"
+					onChange={handleChange}
+					checked={checked === "radio-button-2"}
+				/>
+				<RadioButton
+					id="radio-button-3"
+					label="Radio Button"
+					name="name"
+					onChange={handleChange}
+					checked={checked === "radio-button-3"}
+				/>
+			</Stack>
+		</div>
 	);
 };
 

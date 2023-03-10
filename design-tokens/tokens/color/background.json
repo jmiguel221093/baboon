@@ -9,6 +9,10 @@
 	},
 	"color": {
 		"background": {
+			"overlay": {
+				"value": "rgba(26, 32, 44, 0.3)",
+				"description": "Used as background color for overlay components such as Modal and Popover"
+			},
 			"surface-neutral": {
 				"value": "{color.base.gray.300}",
 				"description": "Used as background color in components with default states such as Button, Badge, ProgressBar, Slider and Tag"
@@ -218,6 +222,18 @@
 							"value": "{color.base.blue.200}",
 							"description": "For use as a subtle background in components when they have info state and have focus action"
 						}
+					}
+				}
+			},
+			"modal": {
+				"gradient": {
+					"start": {
+						"value": "rgba({color.base.white.rgb}, 0)",
+						"description": "For use in modal gradient at the top of the container when modal has scroll content"
+					},
+					"end": {
+						"value": "rgba({color.base.white.rgb}, 1)",
+						"description": "For use in modal gradient at the bottom of the container when modal has scroll content"
 					}
 				}
 			}

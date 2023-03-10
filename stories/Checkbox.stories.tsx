@@ -56,22 +56,6 @@ export const Basic = () => {
 				checked={checked.includes("checkbox")}
 				checkIcon={CheckIcon}
 			/>
-			<Checkbox
-				id="checkbox-2"
-				label="Checkbox label"
-				name="name"
-				onChange={handleChange}
-				checked={checked.includes("checkbox-2")}
-				checkIcon={CheckIcon}
-			/>
-			<Checkbox
-				id="checkbox-3"
-				label="Checkbox label"
-				name="name"
-				onChange={handleChange}
-				checked={checked.includes("checkbox-3")}
-				checkIcon={CheckIcon}
-			/>
 		</>
 	);
 };

@@ -19,4 +19,6 @@ export interface ChoiceElementProps {
 	onMouseLeave?: () => void;
 	/** Callback when the choice is selected */
 	onClick?: () => void;
+	/** Sets appearance to render Toggle as switch size */
+	fancy?: boolean;
 }

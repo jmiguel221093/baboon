@@ -1,0 +1,53 @@
+$card-border-color: var(--color-border-disabled);
+$card-border-spacing: var(--spacing-8);
+$card-border-radius: var(--border-radius-15);
+$card-body-margin-top: var(--spacing-4);
+$card-footer-margin-top: var(--spacing-8);
+
+$card-background-color: var(--color-background-surface);
+$card-background-color-subtle: var(--color-background-surface-neutral-subtle);
+$card-footer-actions-spacing: var(--spacing-4);
+
+.Card {
+	border: 1px solid $card-border-color;
+	padding: $card-border-spacing;
+	border-radius: $card-border-radius;
+	background-color: $card-background-color;
+	&#{&}--subtle {
+		background-color: $card-background-color-subtle;
+		border-color: transparent;
+	}
+	&__Body {
+		&:not(:first-child) {
+			margin-top: $card-body-margin-top;
+		}
+	}
+	&__Footer {
+		&:not(:first-child) {
+			margin-top: $card-footer-margin-top;
+		}
+		.Card {
+			&__Footer__Actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: $card-footer-actions-spacing;
+				&:not(:first-child) {
+					margin-top: $card-footer-actions-spacing;
+				}
+			}
+			&__SecondaryFooterActionsWrapper {
+				flex: none;
+				width: auto;
+				&:only-child {
+					flex: 1 1 0;
+				}
+				&.Card__SecondaryFooterActionsWrapper--multiple {
+					flex: 1 1 100%;
+				}
+			}
+			&__PrimaryFooterActionWrapper {
+				flex: 1 1 0;
+			}
+		}
+	}
+}

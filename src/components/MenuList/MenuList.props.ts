@@ -1,9 +1,11 @@
-import type { MenuItemProps } from "./components";
+import type { MenuListItemProps } from "./components";
 import type { MenuSectionType } from "./components/Section/Section.props";
 
 export interface MenuListProps {
-	items?: readonly MenuItemProps[];
+	items?: readonly MenuListItemProps[];
 	sections?: readonly MenuSectionType[];
-	onSelectItem?: (item: MenuItemProps) => void;
+	onSelectItem?: (item: MenuListItemProps) => void;
 	title?: string;
 }
+
+export { MenuListItemProps };

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cssClassNames, isValidIcon } from "../../../../utils";
 import { Icon } from "../../../Icon";
 import { Text } from "../../../Text";
-import type { MenuItemProps } from "./Item.props";
+import type { MenuListItemProps } from "./Item.props";
 
 import "./Item.styles.scss";
 
@@ -20,7 +20,7 @@ const Item = ({
 	onTouchStart,
 	prefix,
 	suffix,
-}: MenuItemProps) => {
+}: MenuListItemProps) => {
 	const className = cssClassNames(
 		COMPONENT_NAME,
 		danger && "danger",

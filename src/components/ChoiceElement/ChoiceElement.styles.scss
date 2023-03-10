@@ -6,7 +6,8 @@ $choice-element-input-margin-right: var(--spacing-3);
 $choice-element-text-size: var(--font-size-75);
 $choice-line-height: var(--font-line-height-3);
 
-$choice-element-toggle-size: pxToRem(18px);
+$choice-element-toggle-size: pxToRem(20px);
+$choice-element-fancy-toggle-width: pxToRem(38px);
 
 $choice-element-help-text-color: var(--color-text-subtle);
 $choice-element-error-text-color: var(--color-text-danger);
@@ -14,30 +15,33 @@ $choice-element-error-text-color: var(--color-text-danger);
 $choice-color-text-disabled: var(--color-text-disabled);
 
 .ChoiceElement {
-	display: flex;
+	max-width: 100%;
+	display: inline-flex;
 	flex-direction: column;
-	gap: $choice-element-spacing;
-	.ChoiceElement__Label {
+	&__Label {
+		max-width: 100%;
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
-		width: 100%;
 		cursor: pointer;
 		&__Toggle {
+			flex: none;
+			display: block;
 			margin-right: $choice-element-input-margin-right;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			line-height: 0;
 			width: $choice-element-toggle-size;
 			height: $choice-element-toggle-size;
-			& > * {
-				width: 100%;
-				height: 100%;
+		}
+		&--fancy {
+			.ChoiceElement__Label {
+				&__Toggle {
+					width: $choice-element-fancy-toggle-width;
+					border-radius: $choice-element-fancy-toggle-width;
+				}
 			}
 		}
 		&__LabelText {
 			font-size: $choice-element-text-size;
-			line-height: $choice-line-height;
+			flex: 1 1 0;
 		}
 		&[class*="disabled"] {
 			cursor: default;
@@ -55,6 +59,12 @@ $choice-color-text-disabled: var(--color-text-disabled);
 		padding-left: calc(
 			$choice-element-input-margin-right + $choice-element-toggle-size
 		);
+		&--fancy {
+			padding-left: calc(
+				$choice-element-input-margin-right +
+					$choice-element-fancy-toggle-width
+			);
+		}
 		.ChoiceElement__HelpText {
 			color: $choice-element-help-text-color;
 		}

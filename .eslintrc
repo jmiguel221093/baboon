@@ -75,6 +75,7 @@
 		"prefer-template": "error",
 		"no-multi-str": "error",
 		"no-unused-expressions": "error",
+		"react/display-name": "off",
 		"no-extra-parens": [
 			"error",
 			"all",

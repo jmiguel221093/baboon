@@ -21,18 +21,19 @@ $radio-button-color-text-disabled: var(--color-text-disabled);
 $radio-button-background-color-disabled: var(
 	--color-background-surface-disabled
 );
+$radio-button-size: pxToRem(18px);
 
 .RadioButton {
-	position: relative;
-	height: 100%;
-	width: 100%;
+	display: inline-block;
+	width: $radio-button-size;
+	height: $radio-button-size;
 	&__Indicator {
 		position: relative;
 		display: block;
-		width: 100%;
-		height: 100%;
+		width: $radio-button-size;
+		height: $radio-button-size;
 		border: solid 1px $radio-button-border-color;
-		border-radius: 50%;
+		border-radius: 40px;
 		transition: background-color $radio-button-motion-duration
 				$radio-button-motion-ease,
 			box-shadow $radio-button-motion-duration $radio-button-motion-ease,
