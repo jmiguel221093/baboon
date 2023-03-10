@@ -1,0 +1,83 @@
+@import "../../styles/main.scss";
+
+$switch-height: pxToRem(20px);
+$switch-default-border-color: var(--color-border-neutral-subtle);
+$switch-border-color-hover: var(--color-border-neutral-subtle-hovered);
+$switch-border-color-focus: var(--color-border-neutral-subtle-focus);
+$switch-border-color-checked: var(--color-border-primary);
+$switch-checked-background-color: var(--color-background-surface-primary);
+$switch-border-radius: var(--border-radius-15);
+$switch-indicator-size: pxToRem(12px);
+$switch-indicator-size-border-radius: var(--border-radius-circular);
+$switch-default-indicator-background: var(
+	--color-background-surface-neutral-active
+);
+$switch-default-indicator-error-background: var(
+	--color-background-surface-danger
+);
+$switch-indicator-checked-background: var(--color-background-surface);
+$switch-inner-padding: pxToRem(3.5px);
+$switch-motion-duration: var(--motion-duration-250);
+$switch-motion-ease: var(--motion-ease-in-out);
+
+$switch-border-color-error: var(--color-border-danger);
+$switch-border-color-error-hover: var(--color-border-danger-hovered);
+
+$switch-indicator-disabled-color: var(--color-border-neutral-subtle);
+$switch-background-color-disabled: var(--color-background-surface-disabled);
+
+.Switch {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: $switch-height;
+	input {
+		display: none;
+	}
+	border: solid 1px $switch-default-border-color;
+	border-radius: $switch-border-radius;
+	transition: border $switch-motion-duration $switch-motion-ease,
+		background $switch-motion-duration $switch-motion-ease;
+	&:before {
+		content: "";
+		display: block;
+		width: $switch-indicator-size;
+		height: $switch-indicator-size;
+		border-radius: $switch-indicator-size-border-radius;
+		background-color: $switch-default-indicator-background;
+		margin-left: 0;
+		transition: left $switch-motion-duration $switch-motion-ease,
+			background $switch-motion-duration $switch-motion-ease;
+		position: absolute;
+		top: 50%;
+		left: $switch-inner-padding;
+		transform: translateY(-50%);
+	}
+	&:hover {
+		border-color: $switch-border-color-hover;
+		&[class*="error"] {
+			border-color: $switch-border-color-error-hover;
+		}
+	}
+	&#{&}--error {
+		border-color: $switch-border-color-error;
+		&:before {
+			background-color: $switch-default-indicator-error-background;
+		}
+	}
+	&#{&}--checked {
+		border-color: $switch-border-color-checked !important;
+		background-color: $switch-checked-background-color;
+		&:before {
+			left: calc(100% - $switch-inner-padding - $switch-indicator-size);
+			background-color: $switch-indicator-checked-background !important;
+		}
+	}
+	&#{&}--disabled {
+		background: $switch-background-color-disabled !important;
+		border-color: $switch-indicator-disabled-color !important;
+		&:before {
+			background-color: $switch-indicator-disabled-color !important;
+		}
+	}
+}

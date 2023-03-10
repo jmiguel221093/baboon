@@ -27,6 +27,7 @@ $checkbox-color-text-disabled: var(--color-text-disabled);
 
 .Checkbox {
 	position: relative;
+	display: block;
 	width: 100%;
 	height: 100%;
 	border: solid 1px $checkbox-border-color;
@@ -40,7 +41,6 @@ $checkbox-color-text-disabled: var(--color-text-disabled);
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform-origin: 50% 50%;
 		pointer-events: none;
 		transform: translate(-50%, -50%) scale(0);
 		opacity: 0;
@@ -48,6 +48,9 @@ $checkbox-color-text-disabled: var(--color-text-disabled);
 			opacity $checkbox-motion-duration $checkbox-motion-ease;
 		width: $checkbox-checked-icon-size;
 		height: $checkbox-checked-icon-size;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		.Icon,
 		.Icon svg {
 			width: 100%;

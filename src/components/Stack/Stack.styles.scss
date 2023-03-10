@@ -25,11 +25,15 @@ $stack-distributions: (
 
 .Stack {
 	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
 	&--wrap {
 		flex-wrap: wrap;
 	}
 	&__Item {
 		max-width: 100%;
+		flex: 0 0 auto;
+		min-width: 0;
 	}
 
 	&#{&}--type-detached#{&}--spacing {

@@ -17,10 +17,12 @@ const ChoiceElement = ({
 	helpText,
 	onMouseEnter,
 	onMouseLeave,
+	fancy,
 }: ChoiceElementProps) => {
 	const className = cssClassNames(
 		MAIN_COMPONENT_NAME,
-		disabled && "disabled"
+		disabled && "disabled",
+		fancy && "fancy"
 	);
 
 	const labelMarkup = label ? (
@@ -48,9 +50,14 @@ const ChoiceElement = ({
 		) : null;
 	/* eslint-enable no-extra-parens */
 
+	const captionClassName = cssClassNames(
+		`${COMPONENT_NAME}__Caption`,
+		fancy && "fancy"
+	);
+
 	const captionMarkup =
 		helpTextMarkup || errorMarkup ? (
-			<div className={`${COMPONENT_NAME}__Caption`}>
+			<div className={captionClassName}>
 				{errorMarkup}
 				{helpTextMarkup}
 			</div>
