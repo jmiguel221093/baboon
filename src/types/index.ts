@@ -7,3 +7,5 @@ export * from "./StatusType";
 export * from "./TextTagNameType";
 export * from "./ErrorType";
 export * from "./SizeType";
+export * from "./ImageSourceType";
+export * from "./ActionsGroupType";

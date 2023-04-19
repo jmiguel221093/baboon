@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { cssClassNames } from "../../utils";
+import { cssClassNames, generateUUID } from "../../utils";
 import { ChoiceElement } from "../ChoiceElement";
 import { Icon } from "../Icon";
 
@@ -29,6 +29,8 @@ const Checkbox = ({
 	const isIndeterminate = checked === "indeterminate";
 	const isChecked = !isIndeterminate && Boolean(checked);
 
+	const checkboxId = generateUUID();
+
 	const className = cssClassNames(
 		COMPONENT_NAME,
 		isHovered && "hovered",
@@ -41,7 +43,7 @@ const Checkbox = ({
 		if (!onChange || !inputRef.current || disabled) {
 			return;
 		}
-		onChange(!checked, id || name);
+		onChange(!checked, id || name || null);
 		inputRef.current.focus();
 	};
 
@@ -53,7 +55,7 @@ const Checkbox = ({
 
 	return (
 		<ChoiceElement
-			id={id || name}
+			id={id || checkboxId}
 			label={label}
 			error={error}
 			helpText={helpText}
@@ -64,7 +66,7 @@ const Checkbox = ({
 			<span className={className}>
 				<input
 					ref={inputRef}
-					id={id || name}
+					id={id || checkboxId}
 					className={`${COMPONENT_NAME}__Input`}
 					name={name}
 					type="checkbox"
