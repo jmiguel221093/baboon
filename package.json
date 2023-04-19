@@ -1,114 +1,119 @@
 {
-	"name": "baboon",
-	"version": "0.1.0",
-	"description": "",
-	"scripts": {
-		"build:design-tokens": "node design-tokens/scripts/build-tokens.js",
-		"build:types": "tsc -b",
-		"dev": "yarn storybook",
-		"storybook": "yarn build:design-tokens; start-storybook -p 6006",
-		"build-storybook": "build-storybook",
-		"prepare": "husky install",
-		"lint": "eslint \"**/*.{ts,tsx}\"",
-		"start": "yarn storybook",
-		"test": "jest",
-		"test:watch": "jest --watch",
-		"create:component": "node ./scripts/component-creator.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/jmiguel221093/baboon.git"
-	},
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/jmiguel221093/baboon/issues"
-	},
-	"homepage": "https://github.com/jmiguel221093/baboon#readme",
-	"peerDependencies": {
-		"react": "17.0.2",
-		"react-dom": "17.0.2"
-	},
-	"eslintConfig": {
-		"extends": [
-			"react-app"
-		],
-		"overrides": [
-			{
-				"files": [
-					"**/*.stories.*"
-				],
-				"rules": {
-					"import/no-anonymous-default-export": "off"
-				}
-			}
-		]
-	},
-	"devDependencies": {
-		"@babel/core": "7.19.3",
-		"@babel/preset-env": "7.19.4",
-		"@babel/preset-react": "7.18.6",
-		"@babel/preset-typescript": "7.18.6",
-		"@storybook/addon-actions": "6.5.12",
-		"@storybook/addon-essentials": "6.5.12",
-		"@storybook/addon-interactions": "6.5.12",
-		"@storybook/addon-links": "6.5.12",
-		"@storybook/builder-webpack4": "6.5.12",
-		"@storybook/manager-webpack4": "6.5.12",
-		"@storybook/react": "6.5.12",
-		"@testing-library/jest-dom": "5.16.5",
-		"@testing-library/react": "12.1.2",
-		"@types/enzyme": "3.10.12",
-		"@types/jest": "29.2.0",
-		"@types/react": "18.0.21",
-		"@types/react-dom": "18.0.6",
-		"@types/react-transition-group": "^4.4.5",
-		"@wojtekmaj/enzyme-adapter-react-17": "0.6.7",
-		"babel-jest": "29.2.1",
-		"babel-loader": "8.2.5",
-		"concurrently": "7.4.0",
-		"css-loader": "5.2.7",
-		"enzyme": "3.11.0",
-		"husky": "8.0.1",
-		"identity-obj-proxy": "3.0.0",
-		"jest": "29.2.1",
-		"jest-environment-jsdom": "29.2.1",
-		"pretty-quick": "3.1.3",
-		"prop-types": "15.8.1",
-		"react": "17.0.2",
-		"react-dom": "17.0.2",
-		"react-test-renderer": "18.2.0",
-		"sass-loader": "10.3.1",
-		"style-dictionary": "3.7.1",
-		"style-loader": "2.0.0"
-	},
-	"dependencies": {
-		"@types/mdast": "3.0.10",
-		"@types/node": "16.11.59",
-		"@typescript-eslint/eslint-plugin": "5.38.0",
-		"@typescript-eslint/parser": "5.38.0",
-		"eslint": "8.23.1",
-		"eslint-config-prettier": "8.5.0",
-		"eslint-config-ts-react-important-stuff": "3.0.0",
-		"eslint-plugin-import": "2.26.0",
-		"eslint-plugin-jsx-a11y": "6.6.1",
-		"eslint-plugin-prettier": "4.2.1",
-		"eslint-plugin-react": "7.31.8",
-		"prettier": "2.7.1",
-		"react-transition-group": "^4.4.5",
-		"sass": "1.55.0",
-		"typescript": "4.8.3"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	}
+  "name": "baboon",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "build:design-tokens": "node design-tokens/scripts/build-tokens.js",
+    "build:types": "tsc -b",
+    "dev": "yarn storybook",
+    "storybook": "yarn build:design-tokens; storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "prepare": "husky install",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "start": "yarn storybook",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "create:component": "node ./scripts/component-creator.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmiguel221093/baboon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmiguel221093/baboon/issues"
+  },
+  "homepage": "https://github.com/jmiguel221093/baboon#readme",
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "7.19.3",
+    "@babel/preset-env": "7.19.4",
+    "@babel/preset-react": "7.18.6",
+    "@babel/preset-typescript": "7.18.6",
+    "@storybook/addon-actions": "7.0.4",
+    "@storybook/addon-essentials": "7.0.4",
+    "@storybook/addon-interactions": "7.0.4",
+    "@storybook/addon-links": "7.0.4",
+    "@storybook/addon-mdx-gfm": "^7.0.4",
+    "@storybook/react": "7.0.4",
+    "@storybook/react-webpack5": "^7.0.4",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "12.1.2",
+    "@types/enzyme": "3.10.12",
+    "@types/jest": "29.2.0",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "@types/react-transition-group": "^4.4.5",
+    "@types/uuid": "^9.0.1",
+    "@wojtekmaj/enzyme-adapter-react-17": "0.6.7",
+    "babel-jest": "29.2.1",
+    "babel-loader": "8.2.5",
+    "concurrently": "7.4.0",
+    "css-loader": "5.2.7",
+    "enzyme": "3.11.0",
+    "husky": "8.0.1",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "29.2.1",
+    "jest-environment-jsdom": "29.2.1",
+    "pretty-quick": "3.1.3",
+    "prop-types": "15.8.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-test-renderer": "18.2.0",
+    "sass-loader": "10.3.1",
+    "storybook": "^7.0.4",
+    "style-dictionary": "3.7.1",
+    "style-loader": "2.0.0",
+    "webpack": "^5.79.0"
+  },
+  "dependencies": {
+    "@storybook/cli": "^7.0.4",
+    "@types/mdast": "3.0.10",
+    "@types/node": "16.11.59",
+    "@typescript-eslint/eslint-plugin": "5.38.0",
+    "@typescript-eslint/parser": "5.38.0",
+    "eslint": "8.23.1",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-config-ts-react-important-stuff": "3.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.31.8",
+    "prettier": "2.7.1",
+    "react-transition-group": "^4.4.5",
+    "sass": "1.55.0",
+    "typescript": "4.8.3",
+    "uuid": "^9.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

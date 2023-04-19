@@ -3,7 +3,7 @@ import type { ErrorLegendProps } from "../ErrorLegend";
 
 export interface CheckboxProps {
 	/** The label text for the checkbox */
-	label: string;
+	label?: string;
 	/** Sets the checkbox state as checked or indeterminate */
 	checked?: boolean | "indeterminate";
 	/** Help text to display a hint text for the field */
@@ -13,7 +13,7 @@ export interface CheckboxProps {
 	/** Unique identifier for the field */
 	id?: string;
 	/** Name for the input */
-	name: string;
+	name?: string;
 	/** The value of the field */
 	value?: string;
 	/** The error message to display */
@@ -23,7 +23,7 @@ export interface CheckboxProps {
 	/** The icon to display when the field is in indeterminate status */
 	indeterminateIcon?: IconType;
 	/** Callback when checkbox changes */
-	onChange?: (checked: boolean, id: string) => void;
+	onChange?: (checked: boolean, id: string | null) => void;
 	/** Callback when checkbox is focused */
 	onFocus?: () => void;
 	/** Callback when focus on checkbox is removed */

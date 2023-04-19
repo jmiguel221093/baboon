@@ -39,11 +39,11 @@ const IndeterminateIcon = () => (
 
 export const Basic = () => {
 	const [checked, setChecked] = React.useState<string[]>([]);
-	const handleChange = (isChecked, name: string) => {
-		if (checked.includes(name)) {
-			setChecked(checked.filter((item) => item !== name));
+	const handleChange = (isChecked: boolean, id: string | null) => {
+		if (id && checked.includes(id)) {
+			setChecked(checked.filter((item) => item !== id));
 		} else {
-			setChecked([...checked, name]);
+			setChecked([...checked, id || ""]);
 		}
 	};
 	return (

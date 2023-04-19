@@ -1,0 +1,94 @@
+@import "../../../../styles/main.scss";
+
+$custom-list-item-padding: var(--spacing-4);
+$custom-list-item-padding-large: var(--spacing-6);
+$custom-list-item-vertical-alignments: (
+	"center": center,
+	"top": flex-start,
+	"bottom": flex-end,
+);
+
+$custom-list-item-split-border-radius: var(--border-radius-15);
+
+.CustomList__Item {
+	display: flex;
+	align-items: flex-start;
+	&__CheckboxWrapper {
+		line-height: 0;
+	}
+	&__CheckboxWrapper,
+	&__SelectionMediaWrapper,
+	&__ContentWrapper,
+	&__ActionsGroupWrapper,
+	&__Action {
+		&:not(:last-child) {
+			margin-right: $custom-list-item-padding;
+			@include md {
+				margin-right: $custom-list-item-padding-large;
+			}
+		}
+	}
+	&__SelectionMediaWrapper {
+		display: flex;
+		align-items: center;
+		line-height: 0;
+	}
+	&:not(:first-child) {
+		padding-top: $custom-list-item-padding;
+		@include md {
+			padding-top: $custom-list-item-padding-large;
+		}
+	}
+	&:not(:last-child) {
+		padding-bottom: $custom-list-item-padding;
+		@include md {
+			padding-bottom: $custom-list-item-padding-large;
+		}
+	}
+	&__MainContentWrapper {
+		display: flex;
+		flex: 1 1 0;
+		flex-wrap: wrap;
+	}
+	&__ContentWrapper {
+		flex: 1 1 0;
+	}
+	&__ActionsGroupWrapper,
+	&__Action {
+		flex: none;
+		width: auto;
+	}
+	&__Action {
+		order: 2;
+		flex: 1 1 100%;
+		margin-top: $custom-list-item-padding;
+		@include md {
+			margin-top: 0;
+			flex: none;
+			order: unset;
+		}
+	}
+	&#{&}--vertical-alignment {
+		@each $alignment, $value in $custom-list-item-vertical-alignments {
+			&-#{$alignment} {
+				align-items: $value;
+				& .CustomList__Item__MainContentWrapper {
+					align-items: $value;
+				}
+			}
+		}
+	}
+	&__ActionsGroupWrapper {
+		align-self: flex-start;
+		@include md {
+			align-self: auto;
+		}
+	}
+	&#{&}--split {
+		padding: $custom-list-item-padding;
+		@include md {
+			padding: $custom-list-item-padding-large;
+		}
+		border-radius: $custom-list-item-split-border-radius;
+	}
+}
