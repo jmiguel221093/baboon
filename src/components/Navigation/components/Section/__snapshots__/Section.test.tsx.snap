@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section renders correctly when the navigation is collapsed 1`] = `ShallowWrapper {}`;
+
+exports[`Section renders correctly when there are items and a title 1`] = `ShallowWrapper {}`;
+
+exports[`Section renders correctly when there are items, a title, and an action 1`] = `ShallowWrapper {}`;
+
+exports[`Section renders correctly when there are no items and no title 1`] = `ShallowWrapper {}`;
