@@ -78,6 +78,12 @@ $text-colors: (
 	"subtle-on-dark": var(--color-text-subtle-on-dark),
 );
 
+$font-weights: (
+	regular: var(--font-weight-regular),
+	medium: var(--font-weight-medium),
+	semibold: var(--font-weight-semi-bold),
+);
+
 @mixin text-styles($text-style) {
 	font-weight: map-get($font-styles-weight, $text-style);
 	font-size: map-get($text-small-styles-sizes, $text-style);
@@ -123,6 +129,11 @@ $text-alignments: ("left", "center", "right", "justify");
 	@each $text-color-name, $text-color-value in $text-colors {
 		&#{&}--#{$text-color-name} {
 			color: $text-color-value;
+		}
+	}
+	@each $font-weight-name, $font-weight-value in $font-weights {
+		&#{&}--#{$font-weight-name} {
+			font-weight: $font-weight-value;
 		}
 	}
 }

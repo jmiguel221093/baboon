@@ -47,7 +47,10 @@ const Alert = ({
 	const secondaryActionMarkup = secondaryAction ? (
 		<div className={`${COMPONENT_NAME}__SecondaryAction`}>
 			<UnstyledButton
-				{...secondaryAction}
+				id={secondaryAction.id}
+				onMouseEnter={secondaryAction.onMouseEnter}
+				onTouchStart={secondaryAction.onTouchStart}
+				disabled={secondaryAction.disabled}
 				onClick={secondaryAction.onPress}
 				className="Button"
 			>
