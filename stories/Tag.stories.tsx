@@ -60,6 +60,14 @@ Clickable.args = {
 	onRemove: undefined,
 };
 
+export const WithLink = Template.bind({});
+WithLink.args = {
+	children: "HTML",
+	onClick: () => {},
+	onRemove: undefined,
+	link: true,
+};
+
 export const Disabled = Template.bind({});
 
 Disabled.args = {
