@@ -1,0 +1,18 @@
+$custom-list-item-border-color: var(--color-border-disabled);
+$custom-list-inner-spacing: var(--spacing-5);
+
+.CustomList {
+	display: flex;
+	flex-direction: column;
+	&:not(#{&}--borderless, #{&}--split-items) li:not(:last-child) {
+		border-bottom: solid 1px $custom-list-item-border-color;
+	}
+	&#{&}--split-items {
+		li {
+			border: solid 1px $custom-list-item-border-color;
+			&:not(:last-child) {
+				margin-bottom: $custom-list-inner-spacing;
+			}
+		}
+	}
+}

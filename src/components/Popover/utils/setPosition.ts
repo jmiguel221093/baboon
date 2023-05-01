@@ -10,7 +10,7 @@ const setPosition = (
 	fixed: boolean,
 	align: AlignType
 ) => {
-	const popoverStyleObj = structuredClone(popoverStyle);
+	const popoverStyleObj = { ...popoverStyle };
 	if (trigger.current && popover.current) {
 		const triggerRect =
 			trigger.current?.children[0].getBoundingClientRect();

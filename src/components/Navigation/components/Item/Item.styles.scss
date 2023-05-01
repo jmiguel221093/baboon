@@ -1,0 +1,176 @@
+@import "../../../../styles/main.scss";
+
+$navigation-section-item-padding: var(--spacing-4);
+$navigation-section-item-border-radius: var(--border-radius-9);
+$navigation-section-item-hover-background: var(
+	--color-background-surface-disabled
+);
+$navigation-section-item-active-background: var(
+	--color-background-surface-neutral-focus
+);
+$navigation-section-item-selected-background: var(
+	--color-background-surface-primary
+);
+
+$navigation-section-item-font-size: var(--font-size-75);
+$navigation-section-item-line-height: var(--font-line-height-3);
+$navigation-section-item-selected-font-color: var(--color-text-on-dark);
+$navigation-section-item-selected-icon-color: var(--color-icon-on-dark);
+$navigation-section-item-disabled-font-color: var(--color-text-disabled);
+$navigation-section-item-disabled-icon-color: var(--color-base-gray-400);
+
+$navigation-section-item-content-margin: var(--spacing-5);
+
+$navigation-section-item-motion-duration: var(--motion-duration-250);
+$navigation-section-item-motion-ease: var(--motion-ease-in-out);
+
+$navigation-section-item-subitem-unselected-color: var(--color-text-subtle);
+$navigation-section-item-subitem-font-weight: var(--font-weight-medium);
+$navigation-section-item-subitem-border-radius: var(--border-radius-5);
+$navigation-section-item-subitem-vertical-padding: calc(
+	var(--spacing-1) + var(--spacing-05)
+);
+$navigation-section-item-subitem-horizontal-padding: calc(
+	var(--spacing-12) + var(--spacing-05)
+);
+$navigation-section-item-subitem-selected-border-color: var(
+	--color-background-surface-primary
+);
+$navigation-section-item-subitem-border-spacing: var(--spacing-1);
+$navigation-section-item-subitem-border-border-radius: var(
+	--border-radius-rounded
+);
+
+.Navigation__Item {
+	display: block;
+	width: 100%;
+	a {
+		display: inline-flex;
+		align-items: center;
+		width: 100%;
+		text-decoration: none;
+		font-size: $navigation-section-item-font-size;
+		line-height: $navigation-section-item-line-height;
+		font-weight: 600;
+		padding: $navigation-section-item-padding;
+		color: inherit;
+		border-radius: $navigation-section-item-border-radius;
+		transition: background-color $navigation-section-item-motion-duration
+			$navigation-section-item-motion-ease;
+		&:hover {
+			background-color: $navigation-section-item-hover-background;
+		}
+		&:active {
+			background-color: $navigation-section-item-active-background;
+		}
+	}
+	&__IconWrapper {
+		line-height: 0;
+		&:not(:last-child) {
+			margin-right: $navigation-section-item-content-margin;
+		}
+	}
+	&__Text {
+		flex: 1;
+		&:not(:last-child) {
+			margin-right: $navigation-section-item-content-margin;
+		}
+	}
+	&--selected {
+		& > a {
+			background-color: $navigation-section-item-selected-background !important;
+		}
+		.Navigation__Item {
+			&__Text {
+				color: $navigation-section-item-selected-font-color !important;
+			}
+			&__IconWrapper svg {
+				color: $navigation-section-item-selected-icon-color !important;
+			}
+		}
+	}
+	&--disabled {
+		& > a {
+			background-color: transparent !important;
+			color: $navigation-section-item-disabled-font-color !important;
+			pointer-events: none;
+		}
+		.Navigation__Item {
+			&__IconWrapper svg {
+				color: $navigation-section-item-disabled-icon-color !important;
+			}
+		}
+	}
+	&#{&}--collapsed {
+		.Navigation__Item {
+			&__Text,
+			&__BadgeWrapper {
+				display: none;
+			}
+		}
+	}
+	&#{&}--truncateText {
+		.Navigation__Item {
+			&__Text {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+	&__SubItem {
+		position: relative;
+		display: flex;
+		align-items: stretch;
+		margin-top: $navigation-section-item-subitem-border-spacing;
+		width: 100%;
+		&:before {
+			flex: none;
+			display: block;
+			width: 2px;
+			content: "";
+			background-color: transparent;
+			margin-right: $navigation-section-item-subitem-border-spacing;
+			border-radius: $navigation-section-item-subitem-border-border-radius;
+		}
+		& > a {
+			flex: 1;
+			padding: $navigation-section-item-subitem-vertical-padding
+				$navigation-section-item-padding
+				$navigation-section-item-subitem-vertical-padding
+				$navigation-section-item-subitem-horizontal-padding;
+			border-radius: $navigation-section-item-subitem-border-radius;
+			font-weight: $navigation-section-item-subitem-font-weight;
+			color: $navigation-section-item-subitem-unselected-color;
+			background: transparent !important;
+			width: 0;
+			&:hover {
+				background-color: $navigation-section-item-hover-background !important;
+			}
+		}
+		&#{&}--truncateText {
+			.Navigation__Item__SubItem {
+				&__Text {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+		}
+		&#{&}--selected {
+			& > a {
+				background-color: $navigation-section-item-hover-background !important;
+				color: inherit;
+			}
+			&:before {
+				background-color: $navigation-section-item-selected-background;
+			}
+		}
+		&#{&}--disabled {
+			& > a {
+				pointer-events: none;
+				color: $navigation-section-item-disabled-font-color !important;
+			}
+		}
+	}
+}

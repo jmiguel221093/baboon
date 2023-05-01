@@ -1,0 +1,32 @@
+@import "../../styles/main.scss";
+
+$navigation-max-width: 250px;
+$navigation-collapsed-max-width: 76px;
+$navigation-vertical-padding: var(--spacing-8);
+$navigation-horizontal-padding: var(--spacing-3);
+
+$navigation-logo-wrapper-top-spacing: 0;
+$navigation-logo-wrapper-spacing: var(--spacing-4);
+$navigation-logo-wrapper-margin-bottom: var(--spacing-8);
+
+.Navigation {
+	max-width: $navigation-max-width;
+	padding: $navigation-vertical-padding $navigation-horizontal-padding;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	&__LogoWrapper {
+		padding: $navigation-logo-wrapper-top-spacing
+			$navigation-horizontal-padding $navigation-logo-wrapper-spacing;
+		line-height: 0;
+		margin-bottom: $navigation-logo-wrapper-margin-bottom;
+		max-width: 100%;
+		& > * {
+			max-width: 100%;
+		}
+	}
+	&#{&}--collapsed {
+		max-width: $navigation-collapsed-max-width;
+	}
+}

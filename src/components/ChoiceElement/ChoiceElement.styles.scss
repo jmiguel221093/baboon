@@ -27,9 +27,11 @@ $choice-color-text-disabled: var(--color-text-disabled);
 		&__Toggle {
 			flex: none;
 			display: block;
-			margin-right: $choice-element-input-margin-right;
 			width: $choice-element-toggle-size;
 			height: $choice-element-toggle-size;
+			&:not(:last-child) {
+				margin-right: $choice-element-input-margin-right;
+			}
 		}
 		&--fancy {
 			.ChoiceElement__Label {

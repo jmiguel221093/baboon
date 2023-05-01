@@ -25,17 +25,26 @@ const ChoiceElement = ({
 		fancy && "fancy"
 	);
 
-	const labelMarkup = label ? (
-		<label
-			className={className}
-			htmlFor={id}
-			onMouseEnter={onMouseEnter}
-			onMouseLeave={onMouseLeave}
-		>
-			<span className={`${MAIN_COMPONENT_NAME}__Toggle`}>{children}</span>
-			<span className={`${MAIN_COMPONENT_NAME}__LabelText`}>{label}</span>
-		</label>
-	) : null;
+	const labelMarkup =
+		label || children ? (
+			<label
+				className={className}
+				htmlFor={id}
+				onMouseEnter={onMouseEnter}
+				onMouseLeave={onMouseLeave}
+			>
+				{children && (
+					<span className={`${MAIN_COMPONENT_NAME}__Toggle`}>
+						{children}
+					</span>
+				)}
+				{label && (
+					<span className={`${MAIN_COMPONENT_NAME}__LabelText`}>
+						{label}
+					</span>
+				)}
+			</label>
+		) : null;
 
 	const helpTextMarkup = helpText ? (
 		<div className={`${COMPONENT_NAME}__HelpText`}>{helpText}</div>
