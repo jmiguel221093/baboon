@@ -41,6 +41,9 @@
 			},
 			"semi-bold": {
 				"value": "600"
+			},
+			"extra-bold": {
+				"value": "800"
 			}
 		},
 		"line-height": {
