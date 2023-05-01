@@ -60,7 +60,6 @@
 		"no-else-return": "error",
 		"no-lonely-if": "error",
 		"line-comment-position": "off",
-		"multiline-comment-style": ["warn", "separate-lines"],
 		"max-lines": ["error", { "max": 250 }],
 		"max-len": [
 			"error",

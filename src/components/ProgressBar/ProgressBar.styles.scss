@@ -1,0 +1,102 @@
+@import "../../styles/main.scss";
+
+$progressbar-container-color: var(--color-background-surface-neutral);
+$progressbar-border-radius: var(--border-radius-rounded);
+$progressbar-heights: (
+	"micro": 2px,
+	"small": 4px,
+	"medium": 8px,
+	"large": 16px,
+	"extra-large": 32px,
+);
+
+$progressbar-colors: (
+	primary: var(--color-background-surface-primary),
+	success: var(--color-background-surface-success),
+	warning: var(--color-background-surface-warning),
+	danger: var(--color-background-surface-danger),
+	info: var(--color-background-surface-info),
+);
+
+$progressbar-label-metadata-container-margin-bottom: var(--spacing-2);
+$progressbar-label-metadata-separator-size: pxToRem(4px);
+$progressbar-label-metadata-separator-border-radius: var(
+	--border-radius-circular
+);
+$progressbar-label-metadata-separator-color: var(
+	--color-background-surface-neutral-focus
+);
+$progressbar-label-metadata-separator-spacing: var(--spacing-2);
+
+.ProgressBar {
+	position: relative;
+	width: 100%;
+	&__ProgressContainer {
+		background-color: $progressbar-container-color;
+		border-radius: $progressbar-border-radius;
+		display: flex;
+		align-items: center;
+		& > * {
+			&:not(:last-child) {
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+			&:not(:first-child) {
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+		}
+	}
+	&__Indicator {
+		border-radius: $progressbar-border-radius;
+		height: inherit;
+		width: var(--progress-bar-size);
+	}
+	&__LabelContainer {
+		display: flex;
+		align-items: center;
+		margin-bottom: $progressbar-label-metadata-container-margin-bottom;
+		line-height: 0;
+	}
+	&__LabelWrapper {
+		flex: 1;
+	}
+	&__Metadata {
+		display: flex;
+		align-items: center;
+		& > * {
+			&:not(:last-child) {
+				display: flex;
+				align-items: center;
+				&:after {
+					content: "";
+					display: block;
+					flex: none;
+					width: $progressbar-label-metadata-separator-size;
+					height: $progressbar-label-metadata-separator-size;
+					border-radius: $progressbar-label-metadata-separator-border-radius;
+					background-color: $progressbar-label-metadata-separator-color;
+					margin: 0 $progressbar-label-metadata-separator-spacing;
+				}
+			}
+		}
+	}
+	@each $name, $height in $progressbar-heights {
+		&--#{$name} {
+			.ProgressBar {
+				&__ProgressContainer {
+					height: pxToRem($height);
+				}
+			}
+		}
+	}
+	@each $name, $color in $progressbar-colors {
+		.ProgressBar {
+			&__Indicator {
+				&--#{$name} {
+					background-color: $color;
+				}
+			}
+		}
+	}
+}
