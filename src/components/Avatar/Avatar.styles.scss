@@ -32,13 +32,14 @@ $avatar-initials-text-color: var(--color-text-on-dark);
 	width: map-get($avatar-sizes, "medium");
 	height: map-get($avatar-sizes, "medium");
 	border-radius: map-get($avatar-border-radius, "medium");
-	color: $avatar-initials-text-color;
+	color: $avatar-initials-text-color !important;
 	&__Initials {
 		position: absolute;
 		top: 0;
 		left: 0;
 		bottom: 0;
 		right: 0;
+		color: $avatar-initials-text-color !important;
 		svg {
 			width: 100%;
 			height: 100%;
@@ -56,11 +57,15 @@ $avatar-initials-text-color: var(--color-text-on-dark);
 		left: 50%;
 		transform: translate(-50%, -50%);
 		& > * {
+			color: $avatar-initials-text-color !important;
 			width: 100%;
 		}
 		svg {
 			width: 100%;
 			height: auto;
+			& * {
+				fill: currentColor;
+			}
 		}
 	}
 	&__Image {
