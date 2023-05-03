@@ -37,11 +37,31 @@ export const Basic = Template.bind({});
 Basic.args = {
 	initials: "JD",
 	username: "John Doe",
+};
+
+export const WithMetadata = Template.bind({});
+WithMetadata.args = {
+	initials: "JD",
+	username: "John Doe",
+	metadata: "Owner",
+};
+
+export const WithUserIcon = Template.bind({});
+WithUserIcon.args = {
+	initials: "JD",
+	username: "John Doe",
+	metadata: "Owner",
+	userIcon: UserIcon,
+};
+
+export const WithChevronIcon = Template.bind({});
+WithChevronIcon.args = {
+	initials: "JD",
+	username: "John Doe",
 	metadata: "Owner",
 	userIcon: UserIcon,
 	chevronIcon: {
 		icon: ChevronDownIcon,
 		outlined: true,
 	},
-	truncateUsername: true,
 };

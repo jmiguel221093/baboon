@@ -38,4 +38,24 @@ export interface UserProps {
 	minWidth?: number;
 	/** Component max width */
 	maxWidth?: number;
+	/** Callback triggered when button is clicked */
+	onClick?: () => void;
+	/** Callback triggered when button is focused */
+	onFocus?: () => void;
+	/** Callback triggered when button is blurred */
+	onBlur?: () => void;
+	/** Callback triggered when button has registered keypress event */
+	onKeyPress?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+	/** Callback triggered when button has registered keyup event */
+	onKeyUp?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+	/** Callback triggered when button has registered keydown event */
+	onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+	/** Callback triggered when mouse enters to button surface */
+	onMouseEnter?: () => void;
+	/** Callback triggered when mouse leaves the button surface */
+	onMouseLeave?: () => void;
+	/** Callback triggered when button is touched */
+	onTouchStart?: () => void;
+	/** Callback triggered when touch ends */
+	onTouchEnd?: () => void;
 }

@@ -28,6 +28,16 @@ const User = ({
 	chevronIcon: chevronIconProp,
 	minWidth = 200,
 	maxWidth = 220,
+	onBlur,
+	onClick,
+	onFocus,
+	onKeyDown,
+	onKeyPress,
+	onKeyUp,
+	onMouseEnter,
+	onMouseLeave,
+	onTouchEnd,
+	onTouchStart,
 }: UserProps) => {
 	const chevronIcon =
 		chevronIconProp && chevronIconProp.icon ? (
@@ -99,7 +109,20 @@ const User = ({
 				} as React.CSSProperties
 			}
 		>
-			<Clickable className={clickableClassName} disabled={disabled}>
+			<Clickable
+				className={clickableClassName}
+				disabled={disabled}
+				onBlur={onBlur}
+				onClick={onClick}
+				onFocus={onFocus}
+				onKeyDown={onKeyDown}
+				onKeyPress={onKeyPress}
+				onKeyUp={onKeyUp}
+				onMouseEnter={onMouseEnter}
+				onMouseLeave={onMouseLeave}
+				onTouchEnd={onTouchEnd}
+				onTouchStart={onTouchStart}
+			>
 				{avatarMarkup}
 				{userDataMarkup}
 				{chevronMarkup}
