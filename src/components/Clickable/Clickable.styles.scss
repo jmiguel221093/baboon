@@ -1,0 +1,42 @@
+$clickable-border-radius: var(--border-radius-10);
+$clickable-inner-spacing: var(--spacing-1);
+$clickable-default-background: transparent;
+
+$clickable-hover-background: var(
+	--color-background-surface-neutral-subtle-hovered
+);
+$clickable-focused-background: var(
+	--color-background-surface-neutral-subtle-focus
+);
+
+$clickable-shadow-focus: var(--shadow-focus-subtle);
+$clickable-disabled-font-color: var(--color-text-disabled);
+
+$clickable-motion-duration: var(--motion-duration-250);
+$clickable-motion-ease: var(--motion-ease-in-out);
+
+.Clickable {
+	display: inline-flex;
+	border: none;
+	text-align: left;
+	cursor: pointer;
+	border-radius: $clickable-border-radius;
+	padding: $clickable-inner-spacing;
+	background: $clickable-default-background;
+	transition: background $clickable-motion-duration $clickable-motion-ease,
+		box-shadow $clickable-motion-duration $clickable-motion-ease;
+	user-select: none;
+	&:hover {
+		background: $clickable-hover-background;
+	}
+	&:focus {
+		background: $clickable-focused-background;
+		box-shadow: $clickable-shadow-focus;
+	}
+	&--disabled {
+		pointer-events: none;
+		*:not(svg, svg *) {
+			color: $clickable-disabled-font-color;
+		}
+	}
+}

@@ -2,6 +2,8 @@ import { cssClassNames } from "../../utils";
 
 import type { UnstyledButtonProps } from "./UnstyledButton.props";
 
+import "./UnstyledButton.styles.scss";
+
 const COMPONENT_NAME = "UnstyledButton";
 
 const UnstyledButton = ({

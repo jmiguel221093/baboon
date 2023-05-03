@@ -1,0 +1,84 @@
+@import "../../styles/main.scss";
+
+$avatar-background-color: var(--color-background-surface-primary);
+$avatar-sizes: (
+	tiny: 24px,
+	small: 32px,
+	medium: 40px,
+	large: 60px,
+	extra-large: 80px,
+	huge: 120px,
+);
+$avatar-border-radius: (
+	tiny: var(--border-radius-4),
+	small: var(--border-radius-6),
+	medium: var(--border-radius-8),
+	large: var(--border-radius-12),
+	extra-large: var(--border-radius-16),
+	huge: var(--border-radius-23),
+);
+$avatar-initials-text-size: var(--font-size-75);
+$avatar-initials-font-weight: var(--font-weight-extra-bold);
+$avatar-initials-text-color: var(--color-text-on-dark);
+
+.Avatar {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	max-width: 100%;
+	aspect-ratio: 1;
+	user-select: none;
+	background-color: $avatar-background-color;
+	width: map-get($avatar-sizes, "medium");
+	height: map-get($avatar-sizes, "medium");
+	border-radius: map-get($avatar-border-radius, "medium");
+	color: $avatar-initials-text-color !important;
+	&__Initials {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		color: $avatar-initials-text-color !important;
+		svg {
+			width: 100%;
+			height: 100%;
+			text {
+				font-size: $avatar-initials-text-size;
+				font-weight: $avatar-initials-font-weight;
+			}
+		}
+	}
+	&__Icon {
+		line-height: 0;
+		width: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		& > * {
+			color: $avatar-initials-text-color !important;
+			width: 100%;
+		}
+		svg {
+			width: 100%;
+			height: auto;
+			& * {
+				fill: currentColor;
+			}
+		}
+	}
+	&__Image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+	@each $size, $value in $avatar-sizes {
+		&--#{$size} {
+			width: pxToRem($value);
+			height: pxToRem($value);
+			border-radius: map-get($avatar-border-radius, $size);
+		}
+	}
+}
