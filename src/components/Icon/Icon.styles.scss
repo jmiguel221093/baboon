@@ -97,10 +97,12 @@ $icon-sizes-border-radius: (
 	&--filled {
 		svg {
 			fill: currentColor;
+			stroke: none;
 		}
 	}
 	&--outlined {
 		svg {
+			fill: none;
 			stroke: currentColor;
 		}
 	}
