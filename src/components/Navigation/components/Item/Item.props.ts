@@ -1,6 +1,7 @@
 import type { MouseEvent } from "react";
 import type { IconType } from "../../../../types";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type SubNavigationItemType<TAnchorType = any> = {
 	/** Indicates weather the link is disabled */
 	disabled?: boolean;

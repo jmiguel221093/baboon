@@ -1,0 +1,138 @@
+@import "../../styles/main.scss";
+
+$date-picker-header-month-label-padding: var(--spacing-3);
+$date-picker-header-month-label-margin-button: var(--spacing-3);
+
+$date-picker-weekdays-font-size: var(--font-size-50);
+$date-picker-weekdays-font-weight: var(--font-weight-semi-bold);
+$date-picker-weekdays-line-height: var(--spacing-12);
+$date-picker-weekdays-horizontal-padding: var(--spacing-2);
+
+$date-picker-day-line-height: pxToRem(40px);
+$date-picker-day-border-radius: var(--border-radius-7);
+$date-picker-day-font-weight: var(--font-weight-regular);
+$date-picker-day-hover-background: var(--color-background-surface-disabled);
+$date-picker-day-in-range-background: var(--color-base-gray-300);
+$date-picker-day-disable-text: var(--color-text-disabled);
+$date-picker-day-default-border: solid 1px transparent;
+$date-picker-day-today-border: solid 1px
+	var(--color-border-neutral-subtle-focus);
+$date-picker-day-selected-background: var(--color-background-surface-primary);
+$date-picker-day-selected-font-color: var(--color-text-on-dark);
+$date-picker-day-selected-font-weight: var(--font-weight-semi-bold);
+
+$date-picker-day-motion-duration: var(--motion-duration-250);
+$date-picker-day-motion-ease: var(--motion-ease-in-out);
+
+.DatePicker {
+	&__Header {
+		display: flex;
+		align-items: stretch;
+		&:not(:last-child) {
+			margin-bottom: $date-picker-header-month-label-margin-button;
+		}
+		&__MonthLabel {
+			display: flex;
+			align-items: center;
+			flex: 1 1 0;
+			text-align: center;
+			padding-left: $date-picker-header-month-label-padding;
+			padding-right: $date-picker-header-month-label-padding;
+			span {
+				flex: none;
+				width: 100%;
+			}
+		}
+	}
+	&__Calendar {
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			thead {
+				th {
+					font-size: $date-picker-weekdays-font-size;
+					font-weight: $date-picker-weekdays-font-weight;
+					text-transform: uppercase;
+					line-height: $date-picker-weekdays-line-height;
+					padding-left: $date-picker-weekdays-horizontal-padding;
+					padding-right: $date-picker-weekdays-horizontal-padding;
+				}
+			}
+		}
+	}
+	&__Day {
+		button {
+			user-select: none;
+			appearance: none;
+			display: block;
+			width: 100%;
+			font-size: $date-picker-weekdays-font-size;
+			height: $date-picker-day-line-height;
+			font-weight: $date-picker-day-font-weight;
+			background: transparent;
+			border: $date-picker-day-default-border;
+			border-radius: $date-picker-day-border-radius;
+			cursor: pointer;
+			color: inherit;
+			&:hover:not(:disabled) {
+				background: $date-picker-day-hover-background;
+			}
+		}
+		&--outOfCurrentMonth {
+			button {
+				color: $date-picker-day-disable-text;
+			}
+		}
+		&--isToday {
+			button {
+				border: $date-picker-day-today-border;
+				font-weight: $date-picker-day-selected-font-weight;
+			}
+		}
+		&--selected,
+		&--firstInRange,
+		&--lastInRange {
+			button {
+				background: $date-picker-day-selected-background !important;
+				color: $date-picker-day-selected-font-color !important;
+				font-weight: $date-picker-day-selected-font-weight;
+			}
+		}
+		&--inRange {
+			button {
+				background: $date-picker-day-in-range-background;
+				border-radius: 0;
+			}
+			&[class*="--isToday"] {
+				button {
+					border-color: transparent;
+				}
+			}
+		}
+		&--firstInRange,
+		&--lastInRange {
+			button {
+				border-radius: 0;
+			}
+		}
+		&--firstInRange {
+			button {
+				border-top-left-radius: $date-picker-day-border-radius;
+				border-bottom-left-radius: $date-picker-day-border-radius;
+			}
+		}
+		&--lastInRange {
+			button {
+				border-top-right-radius: $date-picker-day-border-radius;
+				border-bottom-right-radius: $date-picker-day-border-radius;
+			}
+		}
+		&--disabled {
+			button:disabled {
+				color: $date-picker-day-disable-text;
+				pointer-events: none;
+				background: transparent;
+			}
+		}
+	}
+}
